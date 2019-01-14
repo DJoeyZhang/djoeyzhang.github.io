@@ -78,11 +78,13 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="other,">
 
 
 
 
+
+  <link rel="alternate" href="/atom.xml" title="权译's  Blog" type="application/atom+xml">
 
 
 
@@ -95,15 +97,16 @@
 
 
 <meta name="description" content="序言：工作几年，从copy &amp;amp; use的小萌新慢慢成长为design &amp;amp; optimize 的大萌新。希望找个地方记录自己的工作生活。那我们先从如何折腾这个blog空间开始。">
+<meta name="keywords" content="other">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Hexo+NexT.Mist搭建主题blog，进行SEO优化，并分流托管至GitHub&#x2F;Coding pages">
+<meta property="og:title" content="使用Hexo+NexT.Mist搭建主题blog，并分流托管至GitHub&#x2F;Coding pages">
 <meta property="og:url" content="https://github.com/DJoeyZhang/archives/22554.html">
 <meta property="og:site_name" content="权译&#39;s  Blog">
 <meta property="og:description" content="序言：工作几年，从copy &amp;amp; use的小萌新慢慢成长为design &amp;amp; optimize 的大萌新。希望找个地方记录自己的工作生活。那我们先从如何折腾这个blog空间开始。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-14T07:25:51.948Z">
+<meta property="og:updated_time" content="2019-01-14T09:26:13.496Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用Hexo+NexT.Mist搭建主题blog，进行SEO优化，并分流托管至GitHub&#x2F;Coding pages">
+<meta name="twitter:title" content="使用Hexo+NexT.Mist搭建主题blog，并分流托管至GitHub&#x2F;Coding pages">
 <meta name="twitter:description" content="序言：工作几年，从copy &amp;amp; use的小萌新慢慢成长为design &amp;amp; optimize 的大萌新。希望找个地方记录自己的工作生活。那我们先从如何折腾这个blog空间开始。">
 
 
@@ -139,7 +142,7 @@
 
 
 
-  <title>使用Hexo+NexT.Mist搭建主题blog，进行SEO优化，并分流托管至GitHub/Coding pages | 权译's  Blog</title>
+  <title>使用Hexo+NexT.Mist搭建主题blog，并分流托管至GitHub/Coding pages | 权译's  Blog</title>
   
 
 
@@ -291,7 +294,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">使用Hexo+NexT.Mist搭建主题blog，进行SEO优化，并分流托管至GitHub/Coding pages</h2>
+          <h2 class="post-title" itemprop="name headline">使用Hexo+NexT.Mist搭建主题blog，并分流托管至GitHub/Coding pages</h2>
         
 
         <div class="post-meta">
@@ -393,8 +396,9 @@
 <h4 id="其他"><a href="#其他" class="headerlink" title="其他:"></a>其他:</h4><ul>
 <li><a href="https://github.com/jaredly/hexo-admin">使用hexo-admin后台管理编辑发布你的blog</a></li>
 <li><a href="http://lazyboy.site/hexo-admin-qiniu/2017/02/08/qiniu.html" target="_blank" rel="noopener">搭配hexo-admin使用七牛云图床（方便blog后期迁移）</a></li>
-<li><a href="http://www.dajipai.cc/archives/ec8af0f7.html" target="_blank" rel="noopener">SEO优化</a>:</li>
+<li><a href="http://www.dajipai.cc/archives/ec8af0f7.html" target="_blank" rel="noopener">SEO优化/URL优化</a></li>
 <li><a href="https://www.qq.com/404/" target="_blank" rel="noopener">腾讯公益404</a><br>注意：直接在根目录下创建自己的404.html或者404.md就可以。但是自定义404页面仅对绑定顶级域名的项目才起作用，GitHub默认分配的二级域名是不起作用的，使用hexo server在本机调试也是不起作用的。</li>
+<li><a href="https://blog.csdn.net/wsmrzx/article/details/81478945" target="_blank" rel="noopener">hexo blog使用的markdown常用语法</a></li>
 <li><p>添加about页面:<br><code>$ hexo new page &quot;about&quot;</code><br>之后在sourceaboutindex.md目录下会生成一个index.md文件，打开输入个人信息即可，如果想要添加版权信息，可以在文件末尾添加：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&quot;font-size:12px;border-bottom: #ddd 1px solid; BORDER-LEFT: #ddd 1px solid; BACKGROUND: #f6f6f6; HEIGHT: 120px; BORDER-TOP: #ddd 1px solid; BORDER-RIGHT: #ddd 1px solid&quot;&gt;</span><br><span class="line">&lt;div style=&quot;MARGIN-TOP: 10px; FLOAT: left; MARGIN-LEFT: 5px; MARGIN-RIGHT: 10px&quot;&gt;</span><br><span class="line">&lt;IMG alt=&quot;&quot; src=&quot;https://avatars1.githubusercontent.com/u/168751?v=3&amp;s=140&quot; width=90 height=100&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div style=&quot;LINE-HEIGHT: 200%; MARGIN-TOP: 10px; COLOR: #000000&quot;&gt;</span><br><span class="line">本文链接：&lt;a href=&quot;&lt;%= post.link %&gt;&quot;&gt;&lt;%= post.title %&gt;&lt;/a&gt; &lt;br/&gt;</span><br><span class="line">作者： </span><br><span class="line">&lt;a href=&quot;http://jiji262.github.io/&quot;&gt;&#123;username&#125;&lt;/a&gt; &lt;br/&gt;出处： </span><br><span class="line">&lt;a href=&quot;http://jiji262.github.io/&quot;&gt;https://jacofaker.cn/&lt;/a&gt;</span><br><span class="line">&lt;br/&gt;本文基于&lt;a target=&quot;_blank&quot; title=&quot;Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)&quot; href=&quot;http://creativecommons.org/licenses/by-sa/4.0/&quot;&gt; 知识共享署名-相同方式共享 4.0 &lt;/a&gt;</span><br><span class="line">国际许可协议发布，欢迎转载，演绎或用于商业目的，但是必须保留本文的署名 </span><br><span class="line">&lt;a href=&quot;https://jacofaker.cn&quot;&gt;author&lt;/a&gt;及链接。</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 </li>
@@ -405,8 +409,7 @@
 <p><strong>二维码捐赠:</strong></p>
 <p>首先需要到<a href="https://qr.alipay.com/paipai/open.htm" target="_blank" rel="noopener">这里</a>获取你的支付宝账户的二维码图片，支付宝提供了自定义功能，可以添加自定义文字。</p>
 <p>我的二维码扫描捐赠添加在about页面，当然你也可以添加到其它页面，在hexo/blog/source/about下有index.md，打开，在适当位置添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;center&gt;</span><br><span class="line">欢迎您捐赠本站，您的支持是我最大的动力！</span><br><span class="line">![][http://7xsxyo.com1.z0.glb.clouddn.com/2016/04/15/FoJ1F6Ht0CNaYuCdE2l52F-Fk9Vk202.png]</span><br><span class="line">&lt;/center&gt;</span><br><span class="line">&lt;br/&gt;</span><br><span class="line">&lt;center&gt;可以让图片居中显示，注意将图片链接地址换成你的即可。</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;center&gt;</span><br><span class="line">欢迎您捐赠本站，您的支持是我最大的动力！</span><br><span class="line">![][http://7xsxyo.com1.z0.glb.clouddn.com/2016/04/15/FoJ1F6Ht0CNaYuCdE2l52F-Fk9Vk202.png]</span><br><span class="line">&lt;/center&gt;</span><br><span class="line">&lt;br/&gt;</span><br><span class="line">&lt;center&gt;可以让图片居中显示，注意将图片链接地址换成你的即可。</span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -418,10 +421,45 @@
     
 
     
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>龙颜大悦，朕要赏赐！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="权译 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="权译 Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
 
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/other/" rel="tag"><i class="fa fa-tag"></i> other</a>
+          
+        </div>
       
 
       
@@ -508,9 +546,25 @@
           
 
           
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
 
         </nav>
 
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
         
 
         <div class="links-of-author motion-element">
@@ -724,7 +778,7 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
 <!-- 页面点击小红心 --> 
 <script type="text/javascript" src="/js/src/love.js"></script>
