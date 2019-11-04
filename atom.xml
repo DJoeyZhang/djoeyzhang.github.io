@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/DJoeyZhang/"/>
-  <updated>2019-11-04T03:46:37.554Z</updated>
+  <updated>2019-11-04T03:49:34.695Z</updated>
   <id>https://github.com/DJoeyZhang/</id>
   
   <author>
@@ -21,16 +21,13 @@
     <link href="https://github.com/DJoeyZhang/archives/d0170db3.html"/>
     <id>https://github.com/DJoeyZhang/archives/d0170db3.html</id>
     <published>2019-11-04T02:39:00.000Z</published>
-    <updated>2019-11-04T03:46:37.554Z</updated>
+    <updated>2019-11-04T03:49:34.695Z</updated>
     
-    <content type="html"><![CDATA[<h4 id="代码风格及检查"><a href="#代码风格及检查" class="headerlink" title="代码风格及检查"></a>代码风格及检查</h4><p>代码风格检查目前一致认为用eslint比较好，并且目前ReactNative项目的开发基本都使用VSCode，因此进行代码规则检查使用VSCode的eslint插件。</p><h5 id="关于插件的安装及配置文件的生成（以下基于VSCode）"><a href="#关于插件的安装及配置文件的生成（以下基于VSCode）" class="headerlink" title="关于插件的安装及配置文件的生成（以下基于VSCode）"></a>关于插件的安装及配置文件的生成（以下基于VSCode）</h5><pre><code>1、首先是插件的安装，打开VSCode的扩展商店搜索eslint，找到以后下载并安装，重启VSCode。2、生成配置文件，使用终端执行npm install eslint (如果是全局安装加参数-g，如果是本地在项目根目录执行命令)，安装成功后eslint --init初始化eslint配置文件,初始化过程如下图3、基础规则库的安装，目前使用的基础规则是eslint推荐规则及react推荐规则，因此需要npm install eslint-plugin-react4、除此之外还需要npm install babel-eslint</code></pre><p>最后，使用统一的配置文件内容覆盖自己项目中的（文件名：.eslintrc.js），目前规则还不算完整需要大家来填充修改</p><h5 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h5><p>eslintrc.js</p><h5 id="代码格式化篇"><a href="#代码格式化篇" class="headerlink" title="代码格式化篇"></a>代码格式化篇</h5><p>prettier目前是功能比较强的代码格式化工具，可以根据eslint规则格式化代码（有一些规则可能不生效，需要单独补充）</p><p>关于插件的安装及规则设置</p><pre><code>1、首先是插件的安装，打开VSCode的扩展商店搜索prettier，找到以后下载并安装，重启VSCode。2、在usersetting 里面增加设置</code></pre><p>“prettier.eslintIntegration”: true, //让prettier使用eslint的代码格式进行校验<br>“editor.formatOnSave”: true,<br>“javascript.format.enable”: false<br>“editor.tabSize”: 4,<br>“editor.detectIndentation”: false,</p><p>注意事项：<br>公共文件，最好不要做代码格式化，容易在代码merge时引起许多冲突</p><p>如果需求格式化，约定在项目提测前，某个人格式化，然后其他人及时同步一下</p>]]></content>
+    <content type="html"><![CDATA[<h4 id="代码风格及检查"><a href="#代码风格及检查" class="headerlink" title="代码风格及检查"></a>代码风格及检查</h4><p>代码风格检查目前一致认为用eslint比较好，并且目前ReactNative项目的开发基本都使用VSCode，因此进行代码规则检查使用VSCode的eslint插件。<br><a id="more"></a></p><h5 id="关于插件的安装及配置文件的生成（以下基于VSCode）"><a href="#关于插件的安装及配置文件的生成（以下基于VSCode）" class="headerlink" title="关于插件的安装及配置文件的生成（以下基于VSCode）"></a>关于插件的安装及配置文件的生成（以下基于VSCode）</h5><pre><code>1、首先是插件的安装，打开VSCode的扩展商店搜索eslint，找到以后下载并安装，重启VSCode。2、生成配置文件，使用终端执行npm install eslint (如果是全局安装加参数-g，如果是本地在项目根目录执行命令)，安装成功后eslint --init初始化eslint配置文件3、基础规则库的安装，目前使用的基础规则是eslint推荐规则及react推荐规则，因此需要npm install eslint-plugin-react4、除此之外还需要npm install babel-eslint</code></pre><p>最后，使用统一的配置文件内容覆盖自己项目中的（文件名：.eslintrc.js），目前规则还不算完整需要大家来填充修改</p><h5 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h5><p>eslintrc.js</p><h5 id="代码格式化篇"><a href="#代码格式化篇" class="headerlink" title="代码格式化篇"></a>代码格式化篇</h5><p>prettier目前是功能比较强的代码格式化工具，可以根据eslint规则格式化代码（有一些规则可能不生效，需要单独补充）</p><p>关于插件的安装及规则设置</p><pre><code>1、首先是插件的安装，打开VSCode的扩展商店搜索prettier，找到以后下载并安装，重启VSCode。2、在usersetting 里面增加设置</code></pre><p>“prettier.eslintIntegration”: true, //让prettier使用eslint的代码格式进行校验<br>“editor.formatOnSave”: true,<br>“javascript.format.enable”: false<br>“editor.tabSize”: 4,<br>“editor.detectIndentation”: false,</p><p>注意事项：<br>公共文件，最好不要做代码格式化，容易在代码merge时引起许多冲突</p><p>如果需求格式化，约定在项目提测前，某个人格式化，然后其他人及时同步一下</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h4 id=&quot;代码风格及检查&quot;&gt;&lt;a href=&quot;#代码风格及检查&quot; class=&quot;headerlink&quot; title=&quot;代码风格及检查&quot;&gt;&lt;/a&gt;代码风格及检查&lt;/h4&gt;&lt;p&gt;代码风格检查目前一致认为用eslint比较好，并且目前ReactNative项目的开发基本都使用VS
-      
+      &lt;h4 id=&quot;代码风格及检查&quot;&gt;&lt;a href=&quot;#代码风格及检查&quot; class=&quot;headerlink&quot; title=&quot;代码风格及检查&quot;&gt;&lt;/a&gt;代码风格及检查&lt;/h4&gt;&lt;p&gt;代码风格检查目前一致认为用eslint比较好，并且目前ReactNative项目的开发基本都使用VSCode，因此进行代码规则检查使用VSCode的eslint插件。&lt;br&gt;
     
     </summary>
     
