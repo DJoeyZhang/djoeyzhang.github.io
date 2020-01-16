@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="权译's  Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="工作原因，接触到音视频开发，作为移动开发者，掌握必要的音视频概念是很必要的。此篇记录一些音视频开发中常用的术语，做一些简单的扫盲工作。先上两个经典的音视频项目地址，供参考研究：ijkPlayer:https://github.com/bilibili/ijkplayer GSYVideoPlayer:https://github.com/CarGuo/GSYVideoPlayer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动开发者音视频知识扫盲">
+<meta property="og:url" content="https://github.com/DJoeyZhang/archives/6b71779b.html">
+<meta property="og:site_name" content="权译&#39;s  Blog">
+<meta property="og:description" content="工作原因，接触到音视频开发，作为移动开发者，掌握必要的音视频概念是很必要的。此篇记录一些音视频开发中常用的术语，做一些简单的扫盲工作。先上两个经典的音视频项目地址，供参考研究：ijkPlayer:https://github.com/bilibili/ijkplayer GSYVideoPlayer:https://github.com/CarGuo/GSYVideoPlayer">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://github.com/DJoeyZhang/images/WechatIMG341.png">
+<meta property="og:image" content="https://github.com/DJoeyZhang/images/WechatIMG343.png">
+<meta property="og:updated_time" content="2020-01-16T07:33:15.069Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动开发者音视频知识扫盲">
+<meta name="twitter:description" content="工作原因，接触到音视频开发，作为移动开发者，掌握必要的音视频概念是很必要的。此篇记录一些音视频开发中常用的术语，做一些简单的扫盲工作。先上两个经典的音视频项目地址，供参考研究：ijkPlayer:https://github.com/bilibili/ijkplayer GSYVideoPlayer:https://github.com/CarGuo/GSYVideoPlayer">
+<meta name="twitter:image" content="https://github.com/DJoeyZhang/images/WechatIMG341.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/DJoeyZhang/archives/6b71779b.html">
+
+
+
+
+
+  <title>移动开发者音视频知识扫盲 | 权译's  Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+<!--Github-start-->
+<a href="https://github.com/DJoeyZhang" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<!--Github-end-->
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">权译's  Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">记录生活点点滴滴</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/DJoeyZhang/archives/6b71779b.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="权译">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="权译's  Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">移动开发者音视频知识扫盲</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-14T17:33:02+08:00">
+                2020-01-14
+              </time>
+              <br>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  3.2k  words
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  11  minutes
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="工作原因，接触到音视频开发，作为移动开发者，掌握必要的音视频概念是很必要的。此篇记录一些音视频开发中常用的术语，做一些简单的扫盲工作。"><a href="#工作原因，接触到音视频开发，作为移动开发者，掌握必要的音视频概念是很必要的。此篇记录一些音视频开发中常用的术语，做一些简单的扫盲工作。" class="headerlink" title="工作原因，接触到音视频开发，作为移动开发者，掌握必要的音视频概念是很必要的。此篇记录一些音视频开发中常用的术语，做一些简单的扫盲工作。"></a>工作原因，接触到音视频开发，作为移动开发者，掌握必要的音视频概念是很必要的。此篇记录一些音视频开发中常用的术语，做一些简单的扫盲工作。<br></h5><p>先上两个经典的音视频项目地址，供参考研究：<br><br>ijkPlayer:<a href="https://github.com/bilibili/ijkplayer">https://github.com/bilibili/ijkplayer</a> <br><br>GSYVideoPlayer:<a href="https://github.com/CarGuo/GSYVideoPlayer">https://github.com/CarGuo/GSYVideoPlayer</a><br><a id="more"></a></p>
+<h4 id="一、基本概念"><a href="#一、基本概念" class="headerlink" title="一、基本概念"></a>一、基本概念</h4><p>首先，如下图所示是一个 .MOV 的视频文件，可以看到更多信息栏里编码器有 AAC 、HEVC ，而这个就是视频的音频编码和视频编码，而 MOV 其实就是封装协议，这其实就是我们接下来要介绍的基本概念。<br><img src="../images/WechatIMG341.png" alt=""></p>
+<p>一般情况下，视频流从加载都准备播放是需要经过解协议、解封装、解编码这样的过程，其中协议指的就是流媒体协议；封装是的是视频的封装格式；编码又分为视频编码和音频编码。<br><br>协议一般有 HTTP 、RTSP、RTMP 等，我们就最常见的就是 HTTP 网络协议，而 RTSP 和 RTMP 一般用于直播流或支持带有控制信令的常见，比如远程监控。<br><br>视频封装协议指的是我们常见的 MP4 、AVI 、RMVB 、MKV、TS、FLV 等常见后缀格式，它们所表示的就是多媒体的封装协议，就是在传输过程中把音频和视频打包都一起的封装，所以播放前是需要把这部分内容解开，提取出对应音频编码和视频编码。</p>
+<p>所以如果以后有人问你，你是视频编码是什么，专业的你不能再回答 “我的视频编码是 MP4” 这样的回复哟。</p>
+<h5 id="1、音频编码"><a href="#1、音频编码" class="headerlink" title="1、音频编码"></a>1、音频编码</h5><p>音频编码指的是音频数据的编码方式，常见的如：MP3、 PCM、WAV、AAC、AC-3 等，因为音频的原始数据大小一般不适合直接传入，比如原始大小一般可以按照采样率 <em> 声道数 </em> 样本格式 去计算，假设前面那个 MOV 的音频采样率是 44100 、样本格式是 16 bit 、单声道、24 秒，那么它原始音频大小应该是<br><br><code>44100 * 16 * 1 * 24 / 8 ≈ 2MB</code><br><br><br>而实际将音频信息提取出来的大小，如下图大概只有 200 多K，这就是音频编码的作用。</p>
+<p><img src="../images/WechatIMG343.png" alt=""></p>
+<p>所以一般都会音频传输会采用各种编码格式进行压缩和去冗余，其中比如 WAV/PCM 编码的音频质量比较好，但是体积会比较大；MP3 有损压缩能在音频质量还可以的情况下压缩音频的体积；AAC 也是有损压缩，但是又有分有 LC-AAC、HE-AAC等。</p>
+<h5 id="2、视频编码"><a href="#2、视频编码" class="headerlink" title="2、视频编码"></a>2、视频编码</h5><p>视频编码指的就是画面图像的编码压缩方式，一般有 H263、H264、HEVC（H265）、MPEG-2 、MPEG-4 等，其中H264 是目前比较常见的编码方式。<br><br>通常情况下我们理解的画面是 RGB 组合出来，而目前视频领域可能更多使用 YUV 格式，其中 Y 表示的是亮度（灰度），而 U 和 V表示的是色度（饱和度）。<br><br>YUV 是对 RGB 的特殊处理和叠加来获取颜色，比如 YUV420 可以理解对色度以 2：1 的抽样率进行存储，然后亮度透过色度来显示画面，更多 YUV 的这里就不展开讨论，而为什么使用 YUV 其中有一点因素就是为了兼容以前的黑白电视。<br><br>为什么不直接用原始 YUV ？这里假设上面的 MOV 视频直接使用 YUV420 的格式，那么一帧的大小就会是：<br><br><code>1080 * 1920 * 1 + 1080 * 1920 * 0.5 = 2.9MB</code><br><br><br>如果在这个基础上，算上帧率（30）和一个视频的时长（一小时），那一部视频原始大小就会是天文数字，这样的情况明显不符合网络传输，所以才有了视频编码用于压缩图像。<br><br>在视频压缩里，又有几个概念需要知道，比如：</p>
+<ul>
+<li>IPB 帧是一种常见的帧压缩方法，其中 I 帧属于关键帧是每个画面的参考帧； P 帧是前向预测帧；B 帧是双向预测帧。简单来说就是 I 帧自己就可以得到一个完整画面，而 P 帧需要前面的 I 帧或者 P 帧来帮助解码得到一个完整画面，而 B 帧则需要前面的 I/P 帧或者后面的 P 帧来协助形成一个画面。</li>
+</ul>
+<ul>
+<li>所以 I 帧是很关键的存在，压缩 I 帧就可以很容易压制掉空间的大小，而压缩 P/B 帧可以压缩掉时间上的冗余信息 。所以在视频 seek 的时候，I 帧很关键，如果视频 seek 之后发生往前的跳动，那很可能就是你的视频压缩得太厉害了。</li>
+</ul>
+<ul>
+<li>还有一个叫 IDR 帧的概念，因为 H264 采用的是多帧预测，导致 I 帧不能作为独立的观察条件，所以多出一个叫  IDR 帧的特殊 I 帧用于参考，IDR 帧最关键的概念就是：在解码器过程中一旦收到 IDR 帧，就会立即清空参考帧缓冲区，并将IDR帧作为被参考帧。</li>
+</ul>
+<ul>
+<li><p>在视频解码里还有一个叫 DTS（Decoding Time Stamp） 和 PTS（Presentation Time Stamp）的存在，DTS主要用于视频的解码，PTS主要用于在解码阶段对视频进行同步和输出。因为视频包里面数据解码不是连续的，而是需要通过解码数据源得到的 DTS，才 决定以包应该在什么时候被解码，而得到的PTS 决定了解码后的图片什么时候被绘制。</p>
+</li>
+<li><p>GOP（Group Of Picture）就是两个 I 帧之间的距离，一般 GOP 设置得越大，画面的效果就会越好，到那时需要解码的时间就会越长。 所以如果码率固定而 GOP 值越大，P/B帧 数量会越多，画面质量就会越高。</p>
+</li>
+</ul>
+<h4 id="二、Q-amp-A"><a href="#二、Q-amp-A" class="headerlink" title="二、Q&amp;A"></a>二、Q&amp;A</h4><p>首先说一个经常被问的问题：ffmpeg 全称是 Fast Forward Mpeg ，所以读法为 (ef,ef,’em,peg) ，一般情况下 ffmpeg 使用的是软解码，也即是纯 CPU 解码；而使用平台的 MediaCodec 播放的是硬解码，也就是支持 GPU 协助。<br></p>
+<p>问题1:“为什么同一个视频机器A可以播机器B不可以？”<br><br>这个问题很大可能就是使用了 MediaCodec 的硬解码播放，不同手机和系统版本，对于硬解码的支持是不一样的。<br><br>问题2:“为什么都是 ffmpeg 播放，vlc 可以播放，ijkplayer 却不行？”<br><br>这是因为 ffmpeg 是支持根据配置打包的，因为很多时候你并不需要那么多，比如在 configure 文件中打开和关闭某些格式的支持来达到按需打包的目的，所以同样是 ffmpeg 不同项目打包支持的程度可能都不同。<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">支持wav</span><br><span class="line"></span><br><span class="line">    --enable-libwavpack</span><br><span class="line">    --enable-muxer=wav</span><br><span class="line">    --enable-demuxer=wav</span><br><span class="line">    --enable-decoder=wavpack</span><br><span class="line">    --enable-encoder=wavpack</span><br><span class="line">    --enable-decoder=wav</span><br><span class="line">    --enable-encoder=wav</span><br><span class="line">    --enable-encoder=pcm_s16le</span><br><span class="line">    --enable-decoder=pcm_s16le</span><br><span class="line"></span><br><span class="line">    --enable-encoder=pcm_u8</span><br><span class="line">    --enable-decoder=pcm_u8</span><br><span class="line">    --enable-muxer=pcm_u8</span><br><span class="line">    --enable-demuxer=pcm_u8  </span><br><span class="line">    </span><br><span class="line">支持mp2    </span><br><span class="line">    --enable-encoder=mp2 </span><br><span class="line">    --enable-decoder=mp2 </span><br><span class="line">    --enable-muxer=mp2 </span><br><span class="line">    --enable-decoder=mp2float </span><br><span class="line">    --enable-encoder=mp2fixed </span><br><span class="line">    </span><br><span class="line">支持 h265   </span><br><span class="line">    --enable-decoder=hevc</span><br></pre></td></tr></table></figure></p>
+<p>复制代码问题3：“为什么我的视频缓冲了，在 seek 之后还需要重新请求？”<br><br>这就需要解释缓存和缓冲的区别：</p>
+<p>缓冲：就像在倒垃圾的时候，不可能一有垃圾马上跑去垃圾堆倒，而是先把垃圾倒到垃圾桶，垃圾桶满了再一起倒到垃堆。因为缓冲是在内存中，不可在内存中把整个视频都缓冲进去，所以一般情况下你看到的缓冲都是一段一段的临时数据，一个缓冲块是处于不断地加载又不断清除的过程。</p>
+<p>缓存: 缓存的解释就简单多了，就是把视频在播放的时候一边下载到本地，这样在缓存区域内的数据就不需要发生二次请求。</p>
+<p>问题4：“为什么我的视频在拖拽之后会出现跳动？”<br><br>其实前面已经解释过了，这和视频的关键帧有关系，同时也和 ffmpeg 选择的兼容策略有关系，比如使用 -accurate_seek 可以让位于跳转点和 position 之间的额外部分将被解码并且丢弃，对应 ijk 中就是 enable-accurate-seek 的配置。<br></p>
+<p>问题5：“为什么我的视频会出现音视频不同步？”<br><br>首选确定你的播放器使用的音视频同步协议是什么，比如 ijkplayer 是使用音频作为同步时钟，如果在 ijkplayer 里 在出现音视频不同步，那么很可能就是视频的码率或者帧率太高，可以尝试使用使用 framedrop 丢帧或者开启硬解码支持。<br></p>
+<p>问题6：“为什么我的视频会出现大小和方向不对？”<br><br>一般情况下视频信息里是带有旋转角度的，比如 Android 手机上录制的视频就可能带有旋转角度，所以在布局和绘制时需要把旋转角度如： 270，90 这样的角度考虑上。<br>另外视频在获取大小还会有  Width Height Ratio 的信息也就是宽高比，例如这个信息在 ijkplayer 上是以 videoSarNum / videoSarDen 得到的，只有把宽高比和视频的宽高一起计算，才能获取到真正的展示宽高。<br></p>
+<p>问题7：“为什么我的视频会出现黑边？”<br><br>这个问题其实就是常识性问题，面对不同尺寸不同分辨率的平台，视频显示是根据你给定的 Surface 大小去进行显示，所以你可以选择使用拉伸、裁剪、适应高度、适应宽度等不同布局模式去配置你的绘制控件，这样就可以达到你需要的控制黑边的场景。<br></p>
+<p>诸如此类的问题还有 “如何获取某个时间戳的图像”、“如何同时播放几个视频”、“如何实现播放滤镜”、“如何实现倍速播放” 等问题，这里就不一一展开，感兴趣的可以去 GSYVideoPlayer 的 issue 或者搜索相关的 ffmpeg 实现。<br><br>使用场景<br><br>最后讲一下音视频开发的使用场景，为什么要说这个呢？<br>因为很多时候开发者可能以为“不就是接个播放器 SDK 放个 Url 的功夫吗？” 其实还真不是，做过音视频开发的应该都深有体会。</p>
+<p>1、首先在做音视频开发时，要确定好自己需要支持的封装协议、视频编码、音频编码格式，因为编码格式千万种，一般情况下你不可能全都支持，所以首先要在需求内确定好需要支持的格式范围。</p>
+<p>2、如果存在用户自主上传视频的场景，最好还要在服务端提供转格式与转码率等功能。因为在服务端判断视频格式并转码可以规范编码统一，这能够减少客户端端因为编解码失败无法播放的问题；另外提供同一视频不同码率的链接，可以在不同手机型号和系统上能够拥有更好的播放体验，减少前面说过的因为码率太高出现音视频不同步或者卡顿的问题。</p>
+<p>3、在网络播放中存在很多场景，比如播放过程中网络环境出现变化，是从 4G 转化为 Wifi 还是从 Wifi 转到了 4G 的场景 ，这里面涉及到两个点：第一是网络环境发生改变，那么原本的拉流通道其实已经断开，这时候需要重新启动一个新的连接来替换旧的播放内核，才能实现继续播放；第二就是 Wifi 到 4G 之间的环境发生改变时，需要给用户提示并确定是否执行后续操作。</p>
+<p>4、还有比如当视频画面需要从列表切换到详情页，需要从原本的容器切换到另外一个可渲染容器时，需要在播放内核不暂停的情况下去设置不同的 Surface 来达到切换的目的；片头广告的播放与视频内容的预加载需要两个不同的请求处理等等的场景。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>龙颜大悦，朕要赏赐！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="权译 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="权译 Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/2387c9a6.html" rel="next" title="Mybatis中涉及到的一些设计模式">
+                <i class="fa fa-chevron-left"></i> Mybatis中涉及到的一些设计模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/archives/ab9e4bfe.html" rel="prev" title="MD常用语法总结">
+                MD常用语法总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="权译">
+          <p class="site-author-name" itemprop="name">权译</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Manito Link
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.vivianchen.cn/" title="Vivian's blog" target="_blank">Vivian's blog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://pea3nut.blog/" title="花生PeA的博客" target="_blank">花生PeA的博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.cnblogs.com/Jax/" title="包建强的无线技术空间" target="_blank">包建强的无线技术空间</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://luckyxutao.github.io/" title="luckyxutao" target="_blank">luckyxutao</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.neday.cn/" title="neday's Blog" target="_blank">neday's Blog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://jsonchao.github.io/" title="Deep into Android" target="_blank">Deep into Android</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.dajipai.cc/" title="一只香脆的大鸡排" target="_blank">一只香脆的大鸡排</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#工作原因，接触到音视频开发，作为移动开发者，掌握必要的音视频概念是很必要的。此篇记录一些音视频开发中常用的术语，做一些简单的扫盲工作。"><span class="nav-number">1.</span> <span class="nav-text">工作原因，接触到音视频开发，作为移动开发者，掌握必要的音视频概念是很必要的。此篇记录一些音视频开发中常用的术语，做一些简单的扫盲工作。</span></a></li></ol><li class="nav-item nav-level-4"><a class="nav-link" href="#一、基本概念"><span class="nav-number"></span> <span class="nav-text">一、基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、音频编码"><span class="nav-number">1.</span> <span class="nav-text">1、音频编码</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、视频编码"><span class="nav-number">2.</span> <span class="nav-text">2、视频编码</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、Q-amp-A"><span class="nav-number"></span> <span class="nav-text">二、Q&amp;A</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2018 - 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">权译</span>
+  <span class="post-meta-divider">|</span>
+  <span class="post-meta-item-icon">
+        <i class="fa fa-file-word-o"></i>
+  </span>
+  <span class="post-count">Site words total count:  24.5k  words</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 --> 
+<script type="text/javascript" src="/js/src/love.js"></script>
