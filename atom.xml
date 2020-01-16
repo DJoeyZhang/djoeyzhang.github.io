@@ -85,7 +85,7 @@
     
     <summary type="html">
     
-      &lt;h4 id=&quot;代码风格及检查&quot;&gt;&lt;a href=&quot;#代码风格及检查&quot; class=&quot;headerlink&quot; title=&quot;代码风格及检查&quot;&gt;&lt;/a&gt;代码风格及检查&lt;/h4&gt;&lt;p&gt;代码风格检查目前一致认为用eslint比较好，并且目前ReactNative项目的开发基本都使用VSCode，因此进行代码规则检查使用VSCode的eslint插件。&lt;br&gt;
+      &lt;h4 id=&quot;代码风格及检查&quot;&gt;&lt;a href=&quot;#代码风格及检查&quot; class=&quot;headerlink&quot; title=&quot;代码风格及检查&quot;&gt;&lt;/a&gt;代码风格及检查&lt;/h4&gt;&lt;p&gt;代码风格检查目前一致认为用eslint比较好，并且目前ReactNative项目的开发基本都使用VSCode，因此进行代码规则检查使用VSCode的eslint插件。&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
@@ -105,7 +105,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;hybrid-native开发或者reat-native开发时，不可避免涉及到js脚本编写。对于大前端来说，对于es6/es7的语法熟悉是必备素质。这里介绍一个前端常用的工具库lodash。&lt;br&gt;
+      &lt;p&gt;hybrid-native开发或者reat-native开发时，不可避免涉及到js脚本编写。对于大前端来说，对于es6/es7的语法熟悉是必备素质。这里介绍一个前端常用的工具库lodash。&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
