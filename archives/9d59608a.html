@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="React-native,">
+  <meta name="keywords" content="android,kotlin,">
 
 
 
@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="代码风格及检查代码风格检查目前一致认为用eslint比较好，并且目前ReactNative项目的开发基本都使用VSCode，因此进行代码规则检查使用VSCode的eslint插件。">
-<meta name="keywords" content="React-native">
+<meta name="description" content="何为密封类？从文档得知：密封类用于表示受限类层次结构，此时值可以具有来自受限集的类型之一，但不能具有任何其他类型。从某种意义上说，它们是枚举类的扩展：枚举类型的值集也受到限制，但每个枚举常数仅作为单个实例存在，而密封类的子类可以具有多个实例，这些实例可以包含状态。">
+<meta name="keywords" content="android,kotlin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React-Native开发之VSCode配置规范">
-<meta property="og:url" content="https://github.com/DJoeyZhang/archives/d0170db3.html">
+<meta property="og:title" content="Kotlin学习（六）：Sealed Classes">
+<meta property="og:url" content="https://github.com/DJoeyZhang/archives/9d59608a.html">
 <meta property="og:site_name" content="权译&#39;s  Blog">
-<meta property="og:description" content="代码风格及检查代码风格检查目前一致认为用eslint比较好，并且目前ReactNative项目的开发基本都使用VSCode，因此进行代码规则检查使用VSCode的eslint插件。">
+<meta property="og:description" content="何为密封类？从文档得知：密封类用于表示受限类层次结构，此时值可以具有来自受限集的类型之一，但不能具有任何其他类型。从某种意义上说，它们是枚举类的扩展：枚举类型的值集也受到限制，但每个枚举常数仅作为单个实例存在，而密封类的子类可以具有多个实例，这些实例可以包含状态。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-14T08:56:01.016Z">
+<meta property="og:updated_time" content="2020-02-04T09:16:33.512Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React-Native开发之VSCode配置规范">
-<meta name="twitter:description" content="代码风格及检查代码风格检查目前一致认为用eslint比较好，并且目前ReactNative项目的开发基本都使用VSCode，因此进行代码规则检查使用VSCode的eslint插件。">
+<meta name="twitter:title" content="Kotlin学习（六）：Sealed Classes">
+<meta name="twitter:description" content="何为密封类？从文档得知：密封类用于表示受限类层次结构，此时值可以具有来自受限集的类型之一，但不能具有任何其他类型。从某种意义上说，它们是枚举类的扩展：枚举类型的值集也受到限制，但每个枚举常数仅作为单个实例存在，而密封类的子类可以具有多个实例，这些实例可以包含状态。">
 
 
 
@@ -136,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/DJoeyZhang/archives/d0170db3.html">
+  <link rel="canonical" href="https://github.com/DJoeyZhang/archives/9d59608a.html">
 
 
 
 
 
-  <title>React-Native开发之VSCode配置规范 | 权译's  Blog</title>
+  <title>Kotlin学习（六）：Sealed Classes | 权译's  Blog</title>
   
 
 
@@ -277,7 +277,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/DJoeyZhang/archives/d0170db3.html">
+    <link itemprop="mainEntityOfPage" href="https://github.com/DJoeyZhang/archives/9d59608a.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="权译">
@@ -294,7 +294,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">React-Native开发之VSCode配置规范</h2>
+          <h2 class="post-title" itemprop="name headline">Kotlin学习（六）：Sealed Classes</h2>
         
 
         <div class="post-meta">
@@ -306,8 +306,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-04T10:39:00+08:00">
-                2019-11-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-04T16:56:00+08:00">
+                2020-02-04
               </time>
               <br>
             
@@ -339,7 +339,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  457  words
+                  274  words
                 </span>
               
 
@@ -376,20 +376,11 @@
       
 
       
-        <h4 id="代码风格及检查"><a href="#代码风格及检查" class="headerlink" title="代码风格及检查"></a>代码风格及检查</h4><p>代码风格检查目前一致认为用eslint比较好，并且目前ReactNative项目的开发基本都使用VSCode，因此进行代码规则检查使用VSCode的eslint插件。<br><a id="more"></a></p>
-<h5 id="关于插件的安装及配置文件的生成（以下基于VSCode）"><a href="#关于插件的安装及配置文件的生成（以下基于VSCode）" class="headerlink" title="关于插件的安装及配置文件的生成（以下基于VSCode）"></a>关于插件的安装及配置文件的生成（以下基于VSCode）</h5><pre><code>1、首先是插件的安装，打开VSCode的扩展商店搜索eslint，找到以后下载并安装，重启VSCode。
-2、生成配置文件，使用终端执行npm install eslint (如果是全局安装加参数-g，如果是本地在项目根目录执行命令)，安装成功后eslint --init初始化eslint配置文件
-3、基础规则库的安装，目前使用的基础规则是eslint推荐规则及react推荐规则，因此需要npm install eslint-plugin-react
-4、除此之外还需要npm install babel-eslint
-</code></pre><p>最后，使用统一的配置文件内容覆盖自己项目中的（文件名：.eslintrc.js），目前规则还不算完整需要大家来填充修改</p>
-<h5 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h5><p>eslintrc.js</p>
-<h5 id="代码格式化篇"><a href="#代码格式化篇" class="headerlink" title="代码格式化篇"></a>代码格式化篇</h5><p>prettier目前是功能比较强的代码格式化工具，可以根据eslint规则格式化代码（有一些规则可能不生效，需要单独补充）</p>
-<p>关于插件的安装及规则设置</p>
-<pre><code>1、首先是插件的安装，打开VSCode的扩展商店搜索prettier，找到以后下载并安装，重启VSCode。
-2、在usersetting 里面增加设置
-</code></pre><p>“prettier.eslintIntegration”: true, //让prettier使用eslint的代码格式进行校验<br>“editor.formatOnSave”: true,<br>“javascript.format.enable”: false<br>“editor.tabSize”: 4,<br>“editor.detectIndentation”: false,</p>
-<p>注意事项：<br>公共文件，最好不要做代码格式化，容易在代码merge时引起许多冲突</p>
-<p>如果需求格式化，约定在项目提测前，某个人格式化，然后其他人及时同步一下</p>
+        <h5 id="何为密封类？"><a href="#何为密封类？" class="headerlink" title="何为密封类？"></a>何为密封类？</h5><p>从文档得知：密封类用于表示受限类层次结构，此时值可以具有来自受限集的类型之一，但不能具有任何其他类型。从某种意义上说，它们是枚举类的扩展：枚举类型的值集也受到限制，但每个枚举常数仅作为单个实例存在，而密封类的子类可以具有多个实例，这些实例可以包含状态。<br><a id="more"></a></p>
+<h5 id="如何声明-sealed-class"><a href="#如何声明-sealed-class" class="headerlink" title="如何声明 sealed class?"></a>如何声明 sealed class?</h5><p>只要在类名前加sealed修饰符。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sealed class Car &#123;</span><br><span class="line"></span><br><span class="line">    data class Maruti(val speed: Int) : Car()</span><br><span class="line">    data class Bugatti(val speed: Int, val boost: Int) : Car()</span><br><span class="line">    object NotACar : Car()</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当您在when表达式中使用密封类时，使用它们的关键好处就发挥了作用。如果验证语句覆盖所有情况，则不需要向语句中添加else子句。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fun speed(car: Car): Int = when (car) &#123;</span><br><span class="line">    is Car.Maruti -&gt; car.speed</span><br><span class="line">    is Car.Bugatti -&gt; car.speed + car.boost</span><br><span class="line">    Car.NotACar -&gt; INVALID_SPEED</span><br><span class="line">    // else clause is not required as we&apos;ve covered all the cases</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所以，当你遇到类似场景，考虑使用密封类。</p>
 
       
     </div>
@@ -436,7 +427,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/React-native/" rel="tag"><i class="fa fa-tag"></i> React-native</a>
+            <a href="/tags/android/" rel="tag"><i class="fa fa-tag"></i> android</a>
+          
+            <a href="/tags/kotlin/" rel="tag"><i class="fa fa-tag"></i> kotlin</a>
           
         </div>
       
@@ -449,8 +442,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/archives/20cd7dd6.html" rel="next" title="Debounce函数及lodash库的一些思考">
-                <i class="fa fa-chevron-left"></i> Debounce函数及lodash库的一些思考
+              <a href="/archives/e32f47f4.html" rel="next" title="Kotlin学习（五）：Extension Functions">
+                <i class="fa fa-chevron-left"></i> Kotlin学习（五）：Extension Functions
               </a>
             
           </div>
@@ -458,10 +451,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/archives/51e3ccae.html" rel="prev" title="Nginx的一些配置优化">
-                Nginx的一些配置优化 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -629,7 +618,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#代码风格及检查"><span class="nav-number">1.</span> <span class="nav-text">代码风格及检查</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#关于插件的安装及配置文件的生成（以下基于VSCode）"><span class="nav-number">1.1.</span> <span class="nav-text">关于插件的安装及配置文件的生成（以下基于VSCode）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置文件"><span class="nav-number">1.2.</span> <span class="nav-text">配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#代码格式化篇"><span class="nav-number">1.3.</span> <span class="nav-text">代码格式化篇</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#何为密封类？"><span class="nav-number">1.</span> <span class="nav-text">何为密封类？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何声明-sealed-class"><span class="nav-number">2.</span> <span class="nav-text">如何声明 sealed class?</span></a></li></ol></div>
             
 
           </div>
