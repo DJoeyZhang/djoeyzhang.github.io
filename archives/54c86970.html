@@ -96,17 +96,17 @@
 
 
 
-<meta name="description" content="作为Google的亲儿子，kotlin开发Android应用具有工具多样，上手容易等优势。从语言发展的角度来看，kotlin可以称作为程序员设计的语言。基本语法大家可以去官方文档看，这里我们讨论一些需要注意的地方。">
+<meta name="description" content="我们经常会需要创建一个这样的类：仅用于承载数据，而无其他作用。这样的类中一些标准函数通常可以从数据中机械性的生成。在kotlin中，这种类叫做data class,被标记为 data。（e.g:java中的bean类与其set，get，toString等方法）。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kotlin学习（一）：lateinit vs lazy">
-<meta property="og:url" content="https://github.com/DJoeyZhang/archives/286767e7.html">
+<meta property="og:title" content="Kotlin学习（三）：Data Class">
+<meta property="og:url" content="https://github.com/DJoeyZhang/archives/54c86970.html">
 <meta property="og:site_name" content="权译&#39;s  Blog">
-<meta property="og:description" content="作为Google的亲儿子，kotlin开发Android应用具有工具多样，上手容易等优势。从语言发展的角度来看，kotlin可以称作为程序员设计的语言。基本语法大家可以去官方文档看，这里我们讨论一些需要注意的地方。">
+<meta property="og:description" content="我们经常会需要创建一个这样的类：仅用于承载数据，而无其他作用。这样的类中一些标准函数通常可以从数据中机械性的生成。在kotlin中，这种类叫做data class,被标记为 data。（e.g:java中的bean类与其set，get，toString等方法）。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-23T09:31:13.140Z">
+<meta property="og:updated_time" content="2020-02-04T03:16:11.690Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kotlin学习（一）：lateinit vs lazy">
-<meta name="twitter:description" content="作为Google的亲儿子，kotlin开发Android应用具有工具多样，上手容易等优势。从语言发展的角度来看，kotlin可以称作为程序员设计的语言。基本语法大家可以去官方文档看，这里我们讨论一些需要注意的地方。">
+<meta name="twitter:title" content="Kotlin学习（三）：Data Class">
+<meta name="twitter:description" content="我们经常会需要创建一个这样的类：仅用于承载数据，而无其他作用。这样的类中一些标准函数通常可以从数据中机械性的生成。在kotlin中，这种类叫做data class,被标记为 data。（e.g:java中的bean类与其set，get，toString等方法）。">
 
 
 
@@ -135,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/DJoeyZhang/archives/286767e7.html">
+  <link rel="canonical" href="https://github.com/DJoeyZhang/archives/54c86970.html">
 
 
 
 
 
-  <title>Kotlin学习（一）：lateinit vs lazy | 权译's  Blog</title>
+  <title>Kotlin学习（三）：Data Class | 权译's  Blog</title>
   
 
 
@@ -276,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/DJoeyZhang/archives/286767e7.html">
+    <link itemprop="mainEntityOfPage" href="https://github.com/DJoeyZhang/archives/54c86970.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="权译">
@@ -293,7 +293,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Kotlin学习（一）：lateinit vs lazy</h2>
+          <h2 class="post-title" itemprop="name headline">Kotlin学习（三）：Data Class</h2>
         
 
         <div class="post-meta">
@@ -305,8 +305,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-23T17:01:23+08:00">
-                2020-01-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-04T10:59:23+08:00">
+                2020-02-04
               </time>
               <br>
             
@@ -338,7 +338,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  619  words
+                  384  words
                 </span>
               
 
@@ -354,7 +354,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  2  minutes
+                  1  minutes
                 </span>
               
             </div>
@@ -375,26 +375,23 @@
       
 
       
-        <h5 id="作为Google的亲儿子，kotlin开发Android应用具有工具多样，上手容易等优势。从语言发展的角度来看，kotlin可以称作为程序员设计的语言。基本语法大家可以去官方文档看，这里我们讨论一些需要注意的地方。"><a href="#作为Google的亲儿子，kotlin开发Android应用具有工具多样，上手容易等优势。从语言发展的角度来看，kotlin可以称作为程序员设计的语言。基本语法大家可以去官方文档看，这里我们讨论一些需要注意的地方。" class="headerlink" title="作为Google的亲儿子，kotlin开发Android应用具有工具多样，上手容易等优势。从语言发展的角度来看，kotlin可以称作为程序员设计的语言。基本语法大家可以去官方文档看，这里我们讨论一些需要注意的地方。"></a>作为Google的亲儿子，kotlin开发Android应用具有工具多样，上手容易等优势。从语言发展的角度来看，kotlin可以称作为程序员设计的语言。基本语法大家可以去官方文档看，这里我们讨论一些需要注意的地方。</h5><a id="more"></a>
-<h5 id="lateinit-vs-lazy"><a href="#lateinit-vs-lazy" class="headerlink" title="lateinit vs lazy"></a>lateinit vs lazy</h5><p>Kotlin中有很多优秀的特性，我们可以利用这些特性在Kotlin中编写更好的应用程序。在这些特性中，lateinit和lazy是重要的属性初始化特性。我们必须知道何时使用哪个属性初始化。</p>
-<h5 id="Kotlin-Property-Initialization"><a href="#Kotlin-Property-Initialization" class="headerlink" title="Kotlin Property Initialization"></a>Kotlin Property Initialization</h5><p>如果不想在构造函数中初始化属性，那么这里有两个重要方法可以完成初始化属性。</p>
+        <p>我们经常会需要创建一个这样的类：仅用于承载数据，而无其他作用。这样的类中一些标准函数通常可以从数据中机械性的生成。在kotlin中，这种类叫做data class,被标记为 data。（e.g:java中的bean类与其set，get，toString等方法）。<br><a id="more"></a></p>
+<h6 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h6><h6 id="In-Java"><a href="#In-Java" class="headerlink" title="In Java"></a>In Java</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">public class Developer &#123;</span><br><span class="line"></span><br><span class="line">    private String name;</span><br><span class="line">    private int age;</span><br><span class="line"></span><br><span class="line">    public Developer(String name, int age) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">        this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getName() &#123;</span><br><span class="line">        return name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setName(String name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int getAge() &#123;</span><br><span class="line">        return age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setAge(int age) &#123;</span><br><span class="line">        this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean equals(Object o) &#123;</span><br><span class="line">        if (this == o) return true;</span><br><span class="line">        if (o == null || getClass() != o.getClass()) return false;</span><br><span class="line"></span><br><span class="line">        Developer developer = (Developer) o;</span><br><span class="line"></span><br><span class="line">        if (age != developer.age) return false;</span><br><span class="line">        return name != null ? name.equals(developer.name) : developer.name == null;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public int hashCode() &#123;</span><br><span class="line">        int result = name != null ? name.hashCode() : 0;</span><br><span class="line">        result = 31 * result + age;</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;Developer&#123;&quot; +</span><br><span class="line">                &quot;name=&apos;&quot; + name + &apos;\&apos;&apos; +</span><br><span class="line">                &quot;, age=&quot; + age +</span><br><span class="line">                &apos;&#125;&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h6 id="In-Kotlin"><a href="#In-Kotlin" class="headerlink" title="In Kotlin"></a>In Kotlin</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data class Developer(val name: String, val age: Int)</span><br></pre></td></tr></table></figure>
+<p>当一个类被标记为 data class时，你不需要像Java中那样，去实现或者创建以下这些方法。</p>
 <ul>
-<li>lateinit</li>
-<li>lazy</li>
+<li>hashCode()</li>
+<li>equals()</li>
+<li>toString()</li>
+<li>copy()</li>
 </ul>
-<h5 id="lateinit"><a href="#lateinit" class="headerlink" title="lateinit"></a>lateinit</h5><p>lateinit是延迟初始化。</p>
-<p>通常，声明为具有非空类型的属性必须在构造函数中初始化。然而，这通常并不方便。例如，我想通过依赖注入或在单元测试的设置方法中进行初始化操作。在这种情况下，我不能在构造函数中直接初始化这些属性，但如果我这么做了，在方法体内引用到这些属性变量时，编译器会给我报错。</p>
-<p>为了解决这种问题，你可以给属性标记lateinit字段。</p>
-<h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line"></span><br><span class="line">  lateinit var mock: Mock</span><br><span class="line"></span><br><span class="line">  @SetUp fun setup() &#123;</span><br><span class="line">     mock = Mock()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @Test fun test() &#123;</span><br><span class="line">     mock.do()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>但是这个修饰符只能用在类主体（而不是在主构造函数中）内声明的var属性，并且只能在该属性没有自定义getter或setter时使用。属性的类型必须为非空，并且不能是基元类型。</p>
-<h5 id="lazy"><a href="#lazy" class="headerlink" title="lazy"></a>lazy</h5><p>lazy是惰性初始化。</p>
-<p>lazy（）是一个接受lambda并返回lazy实例的函数，该实例可以作为实现lazy属性的委托：get（）的第一个调用执行传递给lazy（）的lambda并记住结果，get（）的后续调用只返回记住的结果。</p>
-<h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public class Example&#123;</span><br><span class="line">  val name: String by lazy &#123; “Amit Shekhar” &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>所以第一次和随后的调用，name会返回“Amit Shekhar”</p>
-<h5 id="如何选择何时使用哪一个？"><a href="#如何选择何时使用哪一个？" class="headerlink" title="如何选择何时使用哪一个？"></a>如何选择何时使用哪一个？</h5><ul>
-<li>lazy只能用于val属性，而lateinit只能应用于vars，因为它不能编译为最终字段，因此不能保证不变性。</li>
-<li>lateinit变量可以从任何能看到对象的地方初始化。如果您希望您的属性以一种事先未知的方式从外部初始化，请使用lateinit。</li>
+<p>编译器会自动地创建这些内部关联，所以kotlin同样引领了一个使代码整洁的潮流。<br><br>尽管如此，data class 需要满足的需求很少：</p>
+<ul>
+<li>主构造函数需要至少一个参数。</li>
+<li>所有的主构造函数参数需要被标记为val 或者 var。</li>
+<li>Data Class不能是 abstract, open, sealed or inner这些类别.</li>
 </ul>
+<p>所以，当你遇到这些场景，使用data class吧</p>
 
       
     </div>
@@ -448,8 +445,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/archives/ab9e4bfe.html" rel="next" title="MD常用语法总结">
-                <i class="fa fa-chevron-left"></i> MD常用语法总结
+              <a href="/archives/8b7dec41.html" rel="next" title="Kotlin学习（二）：apply vs with">
+                <i class="fa fa-chevron-left"></i> Kotlin学习（二）：apply vs with
               </a>
             
           </div>
@@ -458,8 +455,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/archives/8b7dec41.html" rel="prev" title="Kotlin学习（二）：apply vs with">
-                Kotlin学习（二）：apply vs with <i class="fa fa-chevron-right"></i>
+              <a href="/archives/9105f5af.html" rel="prev" title="Kotlin学习（四）：Destructuring Declarations">
+                Kotlin学习（四）：Destructuring Declarations <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -628,7 +625,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#作为Google的亲儿子，kotlin开发Android应用具有工具多样，上手容易等优势。从语言发展的角度来看，kotlin可以称作为程序员设计的语言。基本语法大家可以去官方文档看，这里我们讨论一些需要注意的地方。"><span class="nav-number">1.</span> <span class="nav-text">作为Google的亲儿子，kotlin开发Android应用具有工具多样，上手容易等优势。从语言发展的角度来看，kotlin可以称作为程序员设计的语言。基本语法大家可以去官方文档看，这里我们讨论一些需要注意的地方。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lateinit-vs-lazy"><span class="nav-number">2.</span> <span class="nav-text">lateinit vs lazy</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Kotlin-Property-Initialization"><span class="nav-number">3.</span> <span class="nav-text">Kotlin Property Initialization</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lateinit"><span class="nav-number">4.</span> <span class="nav-text">lateinit</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Example"><span class="nav-number">5.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lazy"><span class="nav-number">6.</span> <span class="nav-text">lazy</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Example-1"><span class="nav-number">7.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何选择何时使用哪一个？"><span class="nav-number">8.</span> <span class="nav-text">如何选择何时使用哪一个？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#In-Java"><span class="nav-number">2.</span> <span class="nav-text">In Java</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#In-Kotlin"><span class="nav-number">3.</span> <span class="nav-text">In Kotlin</span></a></li></ol></div>
             
 
           </div>

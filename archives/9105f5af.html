@@ -96,17 +96,17 @@
 
 
 
-<meta name="description" content="作为Google的亲儿子，kotlin开发Android应用具有工具多样，上手容易等优势。从语言发展的角度来看，kotlin可以称作为程序员设计的语言。基本语法大家可以去官方文档看，这里我们讨论一些需要注意的地方。">
+<meta name="description" content="解构声明是kotlin中的一个重要特性。我们可以利用这个特性去更好地编写应用。什么是解构呢？解构是一个很方便的方法：用于从一个 数组 或者 数据存储模型（通常是嵌套的模型）中提取多个值。它可以使用在接收数据的位置（如赋值语句的左侧）。其实在ES6、7的语法中，早已支持解构的写法，这里应该是一个借鉴。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kotlin学习（一）：lateinit vs lazy">
-<meta property="og:url" content="https://github.com/DJoeyZhang/archives/286767e7.html">
+<meta property="og:title" content="Kotlin学习（四）：Destructuring Declarations">
+<meta property="og:url" content="https://github.com/DJoeyZhang/archives/9105f5af.html">
 <meta property="og:site_name" content="权译&#39;s  Blog">
-<meta property="og:description" content="作为Google的亲儿子，kotlin开发Android应用具有工具多样，上手容易等优势。从语言发展的角度来看，kotlin可以称作为程序员设计的语言。基本语法大家可以去官方文档看，这里我们讨论一些需要注意的地方。">
+<meta property="og:description" content="解构声明是kotlin中的一个重要特性。我们可以利用这个特性去更好地编写应用。什么是解构呢？解构是一个很方便的方法：用于从一个 数组 或者 数据存储模型（通常是嵌套的模型）中提取多个值。它可以使用在接收数据的位置（如赋值语句的左侧）。其实在ES6、7的语法中，早已支持解构的写法，这里应该是一个借鉴。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-23T09:31:13.140Z">
+<meta property="og:updated_time" content="2020-02-04T03:31:43.624Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kotlin学习（一）：lateinit vs lazy">
-<meta name="twitter:description" content="作为Google的亲儿子，kotlin开发Android应用具有工具多样，上手容易等优势。从语言发展的角度来看，kotlin可以称作为程序员设计的语言。基本语法大家可以去官方文档看，这里我们讨论一些需要注意的地方。">
+<meta name="twitter:title" content="Kotlin学习（四）：Destructuring Declarations">
+<meta name="twitter:description" content="解构声明是kotlin中的一个重要特性。我们可以利用这个特性去更好地编写应用。什么是解构呢？解构是一个很方便的方法：用于从一个 数组 或者 数据存储模型（通常是嵌套的模型）中提取多个值。它可以使用在接收数据的位置（如赋值语句的左侧）。其实在ES6、7的语法中，早已支持解构的写法，这里应该是一个借鉴。">
 
 
 
@@ -135,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/DJoeyZhang/archives/286767e7.html">
+  <link rel="canonical" href="https://github.com/DJoeyZhang/archives/9105f5af.html">
 
 
 
 
 
-  <title>Kotlin学习（一）：lateinit vs lazy | 权译's  Blog</title>
+  <title>Kotlin学习（四）：Destructuring Declarations | 权译's  Blog</title>
   
 
 
@@ -276,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/DJoeyZhang/archives/286767e7.html">
+    <link itemprop="mainEntityOfPage" href="https://github.com/DJoeyZhang/archives/9105f5af.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="权译">
@@ -293,7 +293,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Kotlin学习（一）：lateinit vs lazy</h2>
+          <h2 class="post-title" itemprop="name headline">Kotlin学习（四）：Destructuring Declarations</h2>
         
 
         <div class="post-meta">
@@ -305,8 +305,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-23T17:01:23+08:00">
-                2020-01-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-04T11:18:45+08:00">
+                2020-02-04
               </time>
               <br>
             
@@ -338,7 +338,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  619  words
+                  276  words
                 </span>
               
 
@@ -354,7 +354,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  2  minutes
+                  1  minutes
                 </span>
               
             </div>
@@ -375,26 +375,16 @@
       
 
       
-        <h5 id="作为Google的亲儿子，kotlin开发Android应用具有工具多样，上手容易等优势。从语言发展的角度来看，kotlin可以称作为程序员设计的语言。基本语法大家可以去官方文档看，这里我们讨论一些需要注意的地方。"><a href="#作为Google的亲儿子，kotlin开发Android应用具有工具多样，上手容易等优势。从语言发展的角度来看，kotlin可以称作为程序员设计的语言。基本语法大家可以去官方文档看，这里我们讨论一些需要注意的地方。" class="headerlink" title="作为Google的亲儿子，kotlin开发Android应用具有工具多样，上手容易等优势。从语言发展的角度来看，kotlin可以称作为程序员设计的语言。基本语法大家可以去官方文档看，这里我们讨论一些需要注意的地方。"></a>作为Google的亲儿子，kotlin开发Android应用具有工具多样，上手容易等优势。从语言发展的角度来看，kotlin可以称作为程序员设计的语言。基本语法大家可以去官方文档看，这里我们讨论一些需要注意的地方。</h5><a id="more"></a>
-<h5 id="lateinit-vs-lazy"><a href="#lateinit-vs-lazy" class="headerlink" title="lateinit vs lazy"></a>lateinit vs lazy</h5><p>Kotlin中有很多优秀的特性，我们可以利用这些特性在Kotlin中编写更好的应用程序。在这些特性中，lateinit和lazy是重要的属性初始化特性。我们必须知道何时使用哪个属性初始化。</p>
-<h5 id="Kotlin-Property-Initialization"><a href="#Kotlin-Property-Initialization" class="headerlink" title="Kotlin Property Initialization"></a>Kotlin Property Initialization</h5><p>如果不想在构造函数中初始化属性，那么这里有两个重要方法可以完成初始化属性。</p>
-<ul>
-<li>lateinit</li>
-<li>lazy</li>
+        <h5 id="解构声明是kotlin中的一个重要特性。我们可以利用这个特性去更好地编写应用。"><a href="#解构声明是kotlin中的一个重要特性。我们可以利用这个特性去更好地编写应用。" class="headerlink" title="解构声明是kotlin中的一个重要特性。我们可以利用这个特性去更好地编写应用。"></a>解构声明是kotlin中的一个重要特性。我们可以利用这个特性去更好地编写应用。<br></h5><h5 id="什么是解构呢？"><a href="#什么是解构呢？" class="headerlink" title="什么是解构呢？"></a>什么是解构呢？<br></h5><h6 id="解构是一个很方便的方法：用于从一个-数组-或者-数据存储模型（通常是嵌套的模型）中提取多个值。它可以使用在接收数据的位置（如赋值语句的左侧）。"><a href="#解构是一个很方便的方法：用于从一个-数组-或者-数据存储模型（通常是嵌套的模型）中提取多个值。它可以使用在接收数据的位置（如赋值语句的左侧）。" class="headerlink" title="解构是一个很方便的方法：用于从一个 数组 或者 数据存储模型（通常是嵌套的模型）中提取多个值。它可以使用在接收数据的位置（如赋值语句的左侧）。"></a>解构是一个很方便的方法：用于从一个 数组 或者 数据存储模型（通常是嵌套的模型）中提取多个值。它可以使用在接收数据的位置（如赋值语句的左侧）。<br></h6><h6 id="其实在ES6、7的语法中，早已支持解构的写法，这里应该是一个借鉴。"><a href="#其实在ES6、7的语法中，早已支持解构的写法，这里应该是一个借鉴。" class="headerlink" title="其实在ES6、7的语法中，早已支持解构的写法，这里应该是一个借鉴。"></a>其实在ES6、7的语法中，早已支持解构的写法，这里应该是一个借鉴。</h6><a id="more"></a>
+<p>有时，利用解构去获取一个对象中的变量值是很方便的，for example:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val (name, age) = developer</span><br></pre></td></tr></table></figure></p>
+<p>现在, 我们可以像从前那样单独地使用 name 和 age 字段:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">println(name)</span><br><span class="line">println(age)</span><br></pre></td></tr></table></figure></p>
+<h5 id="我们通常在这些地方会用到解构声明"><a href="#我们通常在这些地方会用到解构声明" class="headerlink" title="我们通常在这些地方会用到解构声明:"></a>我们通常在这些地方会用到解构声明:</h5><ul>
+<li>从一个函数返回两个值</li>
 </ul>
-<h5 id="lateinit"><a href="#lateinit" class="headerlink" title="lateinit"></a>lateinit</h5><p>lateinit是延迟初始化。</p>
-<p>通常，声明为具有非空类型的属性必须在构造函数中初始化。然而，这通常并不方便。例如，我想通过依赖注入或在单元测试的设置方法中进行初始化操作。在这种情况下，我不能在构造函数中直接初始化这些属性，但如果我这么做了，在方法体内引用到这些属性变量时，编译器会给我报错。</p>
-<p>为了解决这种问题，你可以给属性标记lateinit字段。</p>
-<h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line"></span><br><span class="line">  lateinit var mock: Mock</span><br><span class="line"></span><br><span class="line">  @SetUp fun setup() &#123;</span><br><span class="line">     mock = Mock()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @Test fun test() &#123;</span><br><span class="line">     mock.do()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>但是这个修饰符只能用在类主体（而不是在主构造函数中）内声明的var属性，并且只能在该属性没有自定义getter或setter时使用。属性的类型必须为非空，并且不能是基元类型。</p>
-<h5 id="lazy"><a href="#lazy" class="headerlink" title="lazy"></a>lazy</h5><p>lazy是惰性初始化。</p>
-<p>lazy（）是一个接受lambda并返回lazy实例的函数，该实例可以作为实现lazy属性的委托：get（）的第一个调用执行传递给lazy（）的lambda并记住结果，get（）的后续调用只返回记住的结果。</p>
-<h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public class Example&#123;</span><br><span class="line">  val name: String by lazy &#123; “Amit Shekhar” &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>所以第一次和随后的调用，name会返回“Amit Shekhar”</p>
-<h5 id="如何选择何时使用哪一个？"><a href="#如何选择何时使用哪一个？" class="headerlink" title="如何选择何时使用哪一个？"></a>如何选择何时使用哪一个？</h5><ul>
-<li>lazy只能用于val属性，而lateinit只能应用于vars，因为它不能编译为最终字段，因此不能保证不变性。</li>
-<li>lateinit变量可以从任何能看到对象的地方初始化。如果您希望您的属性以一种事先未知的方式从外部初始化，请使用lateinit。</li>
-</ul>
+<h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data class Developer(val name: String, val age: Int)</span><br><span class="line">fun getDeveloper(): Developer &#123;</span><br><span class="line"> // some logic</span><br><span class="line"> return Developer(name, age)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// Now, to use this function:</span><br><span class="line">val (name, age) = getDeveloper()</span><br></pre></td></tr></table></figure>
+<h5 id="在Maps中使用解构声明"><a href="#在Maps中使用解构声明" class="headerlink" title="在Maps中使用解构声明"></a>在Maps中使用解构声明</h5><h5 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for ((key, value) in map) &#123;</span><br><span class="line"> // do something with the key and the value</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所以，当需要的时候，使用解构这个特性吧。</p>
 
       
     </div>
@@ -448,8 +438,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/archives/ab9e4bfe.html" rel="next" title="MD常用语法总结">
-                <i class="fa fa-chevron-left"></i> MD常用语法总结
+              <a href="/archives/54c86970.html" rel="next" title="Kotlin学习（三）：Data Class">
+                <i class="fa fa-chevron-left"></i> Kotlin学习（三）：Data Class
               </a>
             
           </div>
@@ -457,10 +447,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/archives/8b7dec41.html" rel="prev" title="Kotlin学习（二）：apply vs with">
-                Kotlin学习（二）：apply vs with <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -628,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#作为Google的亲儿子，kotlin开发Android应用具有工具多样，上手容易等优势。从语言发展的角度来看，kotlin可以称作为程序员设计的语言。基本语法大家可以去官方文档看，这里我们讨论一些需要注意的地方。"><span class="nav-number">1.</span> <span class="nav-text">作为Google的亲儿子，kotlin开发Android应用具有工具多样，上手容易等优势。从语言发展的角度来看，kotlin可以称作为程序员设计的语言。基本语法大家可以去官方文档看，这里我们讨论一些需要注意的地方。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lateinit-vs-lazy"><span class="nav-number">2.</span> <span class="nav-text">lateinit vs lazy</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Kotlin-Property-Initialization"><span class="nav-number">3.</span> <span class="nav-text">Kotlin Property Initialization</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lateinit"><span class="nav-number">4.</span> <span class="nav-text">lateinit</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Example"><span class="nav-number">5.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lazy"><span class="nav-number">6.</span> <span class="nav-text">lazy</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Example-1"><span class="nav-number">7.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何选择何时使用哪一个？"><span class="nav-number">8.</span> <span class="nav-text">如何选择何时使用哪一个？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#解构声明是kotlin中的一个重要特性。我们可以利用这个特性去更好地编写应用。"><span class="nav-number">1.</span> <span class="nav-text">解构声明是kotlin中的一个重要特性。我们可以利用这个特性去更好地编写应用。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是解构呢？"><span class="nav-number">2.</span> <span class="nav-text">什么是解构呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#解构是一个很方便的方法：用于从一个-数组-或者-数据存储模型（通常是嵌套的模型）中提取多个值。它可以使用在接收数据的位置（如赋值语句的左侧）。"><span class="nav-number">2.1.</span> <span class="nav-text">解构是一个很方便的方法：用于从一个 数组 或者 数据存储模型（通常是嵌套的模型）中提取多个值。它可以使用在接收数据的位置（如赋值语句的左侧）。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#其实在ES6、7的语法中，早已支持解构的写法，这里应该是一个借鉴。"><span class="nav-number">2.2.</span> <span class="nav-text">其实在ES6、7的语法中，早已支持解构的写法，这里应该是一个借鉴。</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#我们通常在这些地方会用到解构声明"><span class="nav-number">3.</span> <span class="nav-text">我们通常在这些地方会用到解构声明:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Example"><span class="nav-number">4.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在Maps中使用解构声明"><span class="nav-number">5.</span> <span class="nav-text">在Maps中使用解构声明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Example-1"><span class="nav-number">6.</span> <span class="nav-text">Example</span></a></li></ol></div>
             
 
           </div>
