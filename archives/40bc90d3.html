@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="权译&#39;s  Blog">
 <meta property="og:description" content="ADB means:android debug bridge,是调试Android设备的桥。开发电视经常需要敲一些adb命令，这里收藏一些常用的ADB命令。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-12T03:54:28.511Z">
+<meta property="og:updated_time" content="2020-02-26T08:01:38.441Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="adb 常用命令（持续更新）">
 <meta name="twitter:description" content="ADB means:android debug bridge,是调试Android设备的桥。开发电视经常需要敲一些adb命令，这里收藏一些常用的ADB命令。">
@@ -339,7 +339,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1.2k  words
+                  1.5k  words
                 </span>
               
 
@@ -355,7 +355,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  4  minutes
+                  6  minutes
                 </span>
               
             </div>
@@ -386,6 +386,16 @@
 <p>adb shell settings delete global global_http_proxy_host</p>
 <p>adb shell settings delete global global_http_proxy_port</p>
 <p>adb reboot</p>
+<p>但是，adb shell settings delete global http_proxy，再有些没有delete参数的设备上报错？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Invalid command: delete</span><br><span class="line"></span><br><span class="line">usage:  settings [--user NUM] get namespace key</span><br><span class="line"></span><br><span class="line">        settings [--user NUM] put namespace key value</span><br><span class="line"></span><br><span class="line">&apos;namespace&apos; is one of &#123;system, secure, global&#125;, case-insensitive</span><br><span class="line"></span><br><span class="line">If &apos;--user NUM&apos; is not given, the operations are performed on the owner user.</span><br></pre></td></tr></table></figure></p>
+<p>解决方法，sqlite中找到settings.db,在数据库中删除代理信息（需要Root）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sqlite3 /data/data/com.android.providers.settings/databases/settings.db</span><br><span class="line">sqlite&gt; select * from global;</span><br><span class="line">sqlite&gt; delete from global where name=&quot;global_http_proxy_host&quot;;</span><br><span class="line">sqlite&gt; delete from global where name=&quot;global_http_proxy_port&quot;;</span><br><span class="line">sqlite&gt; delete from global where name=&quot;http_proxy&quot;;</span><br></pre></td></tr></table></figure></p>
+<p>then adb rebbot</p>
+<p><b>也可以使用第三方apk</b><br><br>AndroidProxySetter工具可以帮助我们使用adb命令可以快速进行wifi代理的设置和清除<br>GitHub地址：</p>
+<p><a href="https://github.com/jpkrause/AndroidProxySetter">https://github.com/jpkrause/AndroidProxySetter</a><br>下好apk后，安装到手机</p>
+<p>adb install proxy-setter-debug-0.2.1.apk</p>
+<p>设置代理：</p>
+<p>adb shell am start -n tk.elevenk.proxysetter/.MainActivity -e host 代理IP地址 -e port 端口号 -e ssid WIFI名称 -e reset-wifi true -e key WIFI密码</p>
+<p>如：</p>
+<p>adb shell am start -n tk.elevenk.proxysetter/.MainActivity -e host 127.0.0.1 -e port 8888 -e ssid YOUR-WIFI-NAME -e reset-wifi true -e key YOUR-WIFI-PASSWORD</p>
 <h5 id="2、安装、卸载应用"><a href="#2、安装、卸载应用" class="headerlink" title="2、安装、卸载应用"></a>2、安装、卸载应用</h5><p><b>安装：</b><br><br>adb install com.xxx.xxx(包名)<br><br><b>卸载：</b><br><br>adb uninstall com.xxx.xxx(包名)</p>
 <h5 id="3、调试应用"><a href="#3、调试应用" class="headerlink" title="3、调试应用"></a>3、调试应用</h5><p><b>列出adb连接的设备:</b><br><br>adb devices</p>
 <p><b>PC机连接某个电视盒子设备:</b><br><br>adb connect 192.168.1.19(连接某个设备，192.168.1.19是设备的IP地址，手机测试一般用不到，盒子或者电视设备会用到)</p>
@@ -684,7 +694,7 @@
   <span class="post-meta-item-icon">
         <i class="fa fa-file-word-o"></i>
   </span>
-  <span class="post-count">Site words total count:  27.9k  words</span>
+  <span class="post-count">Site words total count:  28.2k  words</span>
 </div>
 
 
