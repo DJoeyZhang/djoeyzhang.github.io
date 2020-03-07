@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/DJoeyZhang/"/>
-  <updated>2020-02-26T08:01:38.441Z</updated>
+  <updated>2020-03-07T15:09:55.075Z</updated>
   <id>https://github.com/DJoeyZhang/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>记录一些不错的博文(持续更新)</title>
+    <link href="https://github.com/DJoeyZhang/archives/d68ca116.html"/>
+    <id>https://github.com/DJoeyZhang/archives/d68ca116.html</id>
+    <published>2020-03-07T15:06:00.000Z</published>
+    <updated>2020-03-07T15:09:55.075Z</updated>
+    
+    <content type="html"><![CDATA[<p>博文而强识，温故而知新。这里记录一些平时看到的不错的文章。<br><br><a id="more"></a></p><p>1、关于Android Sqlite操作的文章，介绍的是Google官方的ROOM库，最近正好在做一个通讯录的需求用到。<br><br>Blog:<a href="https://www.jianshu.com/p/72c8efc3ad87" target="_blank" rel="noopener">https://www.jianshu.com/p/72c8efc3ad87</a><br>github:<a href="https://github.com/HoldMyOwn/RoomDemo">https://github.com/HoldMyOwn/RoomDemo</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;博文而强识，温故而知新。这里记录一些平时看到的不错的文章。&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="android" scheme="https://github.com/DJoeyZhang/tags/android/"/>
+    
+      <category term="tools" scheme="https://github.com/DJoeyZhang/tags/tools/"/>
+    
+  </entry>
   
   <entry>
     <title>adb 常用命令（持续更新）</title>
