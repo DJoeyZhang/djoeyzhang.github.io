@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/DJoeyZhang/"/>
-  <updated>2020-03-11T06:05:40.278Z</updated>
+  <updated>2020-03-26T06:56:05.505Z</updated>
   <id>https://github.com/DJoeyZhang/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>记一些工具命令行（持续更新）</title>
+    <link href="https://github.com/DJoeyZhang/archives/6f45ff58.html"/>
+    <id>https://github.com/DJoeyZhang/archives/6f45ff58.html</id>
+    <published>2020-03-26T06:53:48.000Z</published>
+    <updated>2020-03-26T06:56:05.505Z</updated>
+    
+    <content type="html"><![CDATA[<h6 id="一、查看本地keystore文件（前提是有keystore的密码）"><a href="#一、查看本地keystore文件（前提是有keystore的密码）" class="headerlink" title="一、查看本地keystore文件（前提是有keystore的密码）"></a>一、查看本地keystore文件（前提是有keystore的密码）</h6><p>命令：keytool -list -v -keystore 目标文件路径<br></p><h6 id="二、查看三方应用或是系统应用签名"><a href="#二、查看三方应用或是系统应用签名" class="headerlink" title="二、查看三方应用或是系统应用签名"></a>二、查看三方应用或是系统应用签名</h6><p>右键apk解压，目标文件是META-INF文件夹中的CERT.RSA文件，通过命令keytool.exe命令查看证书信息。可以查看签名的MD5、SHA1、SHA256值及签名算法<br><br>命令：keytool -printcert -file 目标文件路径。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h6 id=&quot;一、查看本地keystore文件（前提是有keystore的密码）&quot;&gt;&lt;a href=&quot;#一、查看本地keystore文件（前提是有keystore的密码）&quot; class=&quot;headerlink&quot; title=&quot;一、查看本地keystore文件（前提是有keyst
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>记录一些不错的博文(持续更新)</title>
