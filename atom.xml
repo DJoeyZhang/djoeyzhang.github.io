@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/DJoeyZhang/"/>
-  <updated>2020-04-13T02:09:44.052Z</updated>
+  <updated>2020-04-13T10:14:08.666Z</updated>
   <id>https://github.com/DJoeyZhang/</id>
   
   <author>
@@ -21,16 +21,13 @@
     <link href="https://github.com/DJoeyZhang/archives/148810a7.html"/>
     <id>https://github.com/DJoeyZhang/archives/148810a7.html</id>
     <published>2020-04-13T02:05:27.000Z</published>
-    <updated>2020-04-13T02:09:44.052Z</updated>
+    <updated>2020-04-13T10:14:08.666Z</updated>
     
-    <content type="html"><![CDATA[<p>一、<br><br>flutter    列出所有的命令<br><br>flutter help    查看具体命令的帮助信息<br><br>flutter doctor    查看是否还需要安装其它依赖<br><br>flutter doctor -v    查看详细信息<br><br>flutter channel    查看 Flutter SDK 所有分支<br><br>flutter channel stable    切换分支<br><br>flutter upgrade    升级 Flutter SDK（此命令会同时更新 Flutter SDK 和你的 Flutter 项目依赖包）<br><br>flutter packages get    获取项目所有的依赖包（只更新项目依赖包，不包括 Flutter SDK）<br><br>flutter packages upgrade    获取项目所有依赖包的最新版本（只更新项目依赖包，不包括 Flutter SDK）<br><br>flutter analyze    分析项目代码<br><br>flutter build apk    <br><br>flutter build ios    <br></p><p>二、<br><br>查看Flutter版本<br><br>查看当前版本<br><br>flutter  –version<br><br>查看所有版本<br><br>flutter version<br><br>打印所有命令行用法信息 <br><br>flutter  -h或者flutter  –help<br><br>分析项目的Dart代码。<br><br>flutter  analyze<br><br>Flutter构建命令。<br><br>flutter  build<br><br>列表或开关Flutter通道。<br><br>flutter channel<br><br>删除构建/目录。<br><br>flutter  clean<br><br>配置Flutter设置。<br><br>flutter config<br><br>创建一个新的Flutter项目。<br><br>flutter  create<br><br>列出所有连接的设备。 <br><br>flutter  devices<br><br>展示了有关安装工具的信息。<br><br>flutter doctor<br><br>为当前项目运行Flutter驱动程序测试。<br><br>flutter drive<br><br>格式一个或多个Dart文件。<br><br>flutter format<br><br>在Fuchsia上进行热重载。<br><br>flutter  fuchsia_reload<br><br>显示帮助信息的Flutter。<br><br>flutter help<br><br>在附加设备上安装Flutter应用程序。<br><br>flutter install<br><br>显示用于运行Flutter应用程序的日志输出。<br><br> flutter logs<br><br>命令用于管理Flutter包。<br><br>flutter packages<br><br>填充了Flutter工具的二进制工件缓存。<br><br>flutter  precache<br><br>在附加设备上运行你的Flutter应用程序。<br><br>flutter  run<br><br>从一个连接的设备截图。<br><br>flutter screenshot<br><br>停止在附加设备上的Flutter应用。<br><br>flutter stop<br><br>对当前项目的Flutter单元测试。<br><br>flutter test<br><br>开始并停止跟踪运行的Flutter应用程序。<br><br>flutter trace<br><br>升级你的Flutter副本。<br><br>flutter upgrade<br></p>]]></content>
+    <content type="html"><![CDATA[<p>记录一些flutter开发遇到的问题和一些常用的flutter命令行，方便调试。<br><a id="more"></a></p><p>一、<br><br>flutter    列出所有的命令<br><br>flutter help    查看具体命令的帮助信息<br><br>flutter doctor    查看是否还需要安装其它依赖<br><br>flutter doctor -v    查看详细信息<br><br>flutter channel    查看 Flutter SDK 所有分支<br><br>flutter channel stable    切换分支<br><br>flutter upgrade    升级 Flutter SDK（此命令会同时更新 Flutter SDK 和你的 Flutter 项目依赖包）<br><br>flutter packages get    获取项目所有的依赖包（只更新项目依赖包，不包括 Flutter SDK）<br><br>flutter packages upgrade    获取项目所有依赖包的最新版本（只更新项目依赖包，不包括 Flutter SDK）<br><br>flutter analyze    分析项目代码<br><br>flutter build apk    <br><br>flutter build ios    <br></p><p>二、<br><br>查看Flutter版本<br><br>查看当前版本<br><br>flutter  –version<br><br>查看所有版本<br><br>flutter version<br><br>打印所有命令行用法信息 <br><br>flutter  -h或者flutter  –help<br><br>分析项目的Dart代码。<br><br>flutter  analyze<br><br>Flutter构建命令。<br><br>flutter  build<br><br>列表或开关Flutter通道。<br><br>flutter channel<br><br>删除构建/目录。<br><br>flutter  clean<br><br>配置Flutter设置。<br><br>flutter config<br><br>创建一个新的Flutter项目。<br><br>flutter  create<br><br>列出所有连接的设备。 <br><br>flutter  devices<br><br>展示了有关安装工具的信息。<br><br>flutter doctor<br><br>为当前项目运行Flutter驱动程序测试。<br><br>flutter drive<br><br>格式一个或多个Dart文件。<br><br>flutter format<br><br>在Fuchsia上进行热重载。<br><br>flutter  fuchsia_reload<br><br>显示帮助信息的Flutter。<br><br>flutter help<br><br>在附加设备上安装Flutter应用程序。<br><br>flutter install<br><br>显示用于运行Flutter应用程序的日志输出。<br><br> flutter logs<br><br>命令用于管理Flutter包。<br><br>flutter packages<br><br>填充了Flutter工具的二进制工件缓存。<br><br>flutter  precache<br><br>在附加设备上运行你的Flutter应用程序。<br><br>flutter  run<br><br>从一个连接的设备截图。<br><br>flutter screenshot<br><br>停止在附加设备上的Flutter应用。<br><br>flutter stop<br><br>对当前项目的Flutter单元测试。<br><br>flutter test<br><br>开始并停止跟踪运行的Flutter应用程序。<br><br>flutter trace<br><br>升级你的Flutter副本。<br><br>flutter upgrade<br></p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;一、&lt;br&gt;&lt;br&gt;flutter    列出所有的命令&lt;br&gt;&lt;br&gt;flutter help    查看具体命令的帮助信息&lt;br&gt;&lt;br&gt;flutter doctor    查看是否还需要安装其它依赖&lt;br&gt;&lt;br&gt;flutter doctor -v    查看详细信息
-      
+      &lt;p&gt;记录一些flutter开发遇到的问题和一些常用的flutter命令行，方便调试。&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
