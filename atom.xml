@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/DJoeyZhang/"/>
-  <updated>2020-03-26T06:56:05.505Z</updated>
+  <updated>2020-04-13T02:06:50.632Z</updated>
   <id>https://github.com/DJoeyZhang/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Flutter常用命令行（持续更新）</title>
+    <link href="https://github.com/DJoeyZhang/archives/148810a7.html"/>
+    <id>https://github.com/DJoeyZhang/archives/148810a7.html</id>
+    <published>2020-04-13T02:05:27.000Z</published>
+    <updated>2020-04-13T02:06:50.632Z</updated>
+    
+    <content type="html"><![CDATA[<p>一、<br><br>flutter    列出所有的命令<br><br>flutter help    查看具体命令的帮助信息<br><br>flutter doctor    查看是否还需要安装其它依赖<br><br>flutter doctor -v    查看详细信息<br><br>flutter channel    查看 Flutter SDK 所有分支<br><br>flutter channel stable    切换分支<br><br>flutter upgrade    升级 Flutter SDK（此命令会同时更新 Flutter SDK 和你的 Flutter 项目依赖包）<br><br>flutter packages get    获取项目所有的依赖包（只更新项目依赖包，不包括 Flutter SDK）<br><br>flutter packages upgrade    获取项目所有依赖包的最新版本（只更新项目依赖包，不包括 Flutter SDK）<br><br>flutter analyze    分析项目代码<br><br>flutter build apk    <br><br>flutter build ios    <br></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;一、&lt;br&gt;&lt;br&gt;flutter    列出所有的命令&lt;br&gt;&lt;br&gt;flutter help    查看具体命令的帮助信息&lt;br&gt;&lt;br&gt;flutter doctor    查看是否还需要安装其它依赖&lt;br&gt;&lt;br&gt;flutter doctor -v    查看详细信息
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>记一些工具命令行（持续更新）</title>
