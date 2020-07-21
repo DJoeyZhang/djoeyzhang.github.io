@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="权译&#39;s  Blog">
 <meta property="og:description" content="ADB means:android debug bridge,是调试Android设备的桥。开发电视经常需要敲一些adb命令，这里收藏一些常用的ADB命令。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-26T08:01:38.441Z">
+<meta property="og:updated_time" content="2020-07-21T01:42:01.653Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="adb 常用命令（持续更新）">
 <meta name="twitter:description" content="ADB means:android debug bridge,是调试Android设备的桥。开发电视经常需要敲一些adb命令，这里收藏一些常用的ADB命令。">
@@ -397,7 +397,8 @@
 <p>如：</p>
 <p>adb shell am start -n tk.elevenk.proxysetter/.MainActivity -e host 127.0.0.1 -e port 8888 -e ssid YOUR-WIFI-NAME -e reset-wifi true -e key YOUR-WIFI-PASSWORD</p>
 <h5 id="2、安装、卸载应用"><a href="#2、安装、卸载应用" class="headerlink" title="2、安装、卸载应用"></a>2、安装、卸载应用</h5><p><b>安装：</b><br><br>adb install com.xxx.xxx(包名)<br><br><b>卸载：</b><br><br>adb uninstall com.xxx.xxx(包名)</p>
-<h5 id="3、调试应用"><a href="#3、调试应用" class="headerlink" title="3、调试应用"></a>3、调试应用</h5><p><b>列出adb连接的设备:</b><br><br>adb devices</p>
+<h5 id="3、调试应用"><a href="#3、调试应用" class="headerlink" title="3、调试应用"></a>3、调试应用</h5><p><b>抓日志：</b><br><br>adb logcat -v time &gt; ~\logcat.log<br></p>
+<p><b>列出adb连接的设备:</b><br><br>adb devices</p>
 <p><b>PC机连接某个电视盒子设备:</b><br><br>adb connect 192.168.1.19(连接某个设备，192.168.1.19是设备的IP地址，手机测试一般用不到，盒子或者电视设备会用到)</p>
 <p><b>清除安装的APK缓存数据:</b><br><br>adb shell pm clear com.hiveview.tv（包名） <br><br>清除某个apk缓存数据，清空的是 /data/data/包名/ 下的数据，包括数据库文件等</p>
 <p><b>查看APK包名版本信息:</b><br><br>aapt dump badging pc上apk路径地址<br><br>查看某个apk（在Android系统中包名（例如格式：com.hiveview.tv）是唯一标示一个应用的ID）</p>
@@ -698,7 +699,7 @@
   <span class="post-meta-item-icon">
         <i class="fa fa-file-word-o"></i>
   </span>
-  <span class="post-count">Site words total count:  30.1k  words</span>
+  <span class="post-count">Site words total count:  30.2k  words</span>
 </div>
 
 
