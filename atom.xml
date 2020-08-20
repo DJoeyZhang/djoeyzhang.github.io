@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/DJoeyZhang/"/>
-  <updated>2020-08-20T16:11:33.756Z</updated>
+  <updated>2020-08-20T16:52:38.307Z</updated>
   <id>https://github.com/DJoeyZhang/</id>
   
   <author>
@@ -21,13 +21,13 @@
     <link href="https://github.com/DJoeyZhang/archives/8434bd43.html"/>
     <id>https://github.com/DJoeyZhang/archives/8434bd43.html</id>
     <published>2020-08-20T16:10:53.000Z</published>
-    <updated>2020-08-20T16:11:33.756Z</updated>
+    <updated>2020-08-20T16:52:38.307Z</updated>
     
-    <content type="html"><![CDATA[<p>要睡了,先随便写点，有空再整理。<br><a id="more"></a></p>]]></content>
+    <content type="html"><![CDATA[<p>要睡了,先随便记点，有空再整理。<br><a id="more"></a></p><p>0、关于上次讨论热区配置问题：解决方案如上图<br>    设图片width，height均为1.<br>    左上角建立坐标系，x1,x2,y1,y2分别为x轴坐标/width，y轴坐标/height的比例值。<br>    x1,x2,y1,y2 in (0,1)</p><pre><code>给出配置文件数据结构形如：{url:&quot;www.picture.com&quot;,hotArea:[    {x1:0.5,x2:0.75,y1:0.25,y2:0.5},    ...]如此运营每次设置好热区后，只需要计算一下这四个数就可以了，比切九宫格简单。配置像素值不可取，因图片在前端展示可能会压缩，且按照dip、pt或者rem适配，在不同设备上，px值应该不一样。</code></pre><p>}</p><p>1、关于前端技术选型：</p><pre><code>抖音小游戏支持的主流2种引擎：Cocos Creator,Egret白鹭其中egret引擎文档已经上次更新已经是16年。抛弃。经技术社区调研，CC具备以下优点：version 2.4.2 support了字节小游戏以及字节小游戏开放域的构建发布。引擎侵入性很小，可在字节开发者工具中进行产物二次开发。ES6/7语法，JS栈亲和。API覆盖全面，文档详细。综上，前端决定选用CC引擎。</code></pre><p>2、关于游戏服务端调研：</p><pre><code>浏览多个技术社区和逼乎专栏，多数推荐网易LeanCloud作为游戏服务的后端支持。LeanCloud提供了详细的多人在线游戏server解决方案。部署和运维看起来也挺方便的。收费看着也还行，官网丢出来供服务端大佬参考：https://leancloud.cn/docs/multiplayer-server.html#hash1086233181</code></pre>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;要睡了,先随便写点，有空再整理。&lt;br&gt;&lt;/p&gt;
+      &lt;p&gt;要睡了,先随便记点，有空再整理。&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
