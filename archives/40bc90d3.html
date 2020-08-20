@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="权译&#39;s  Blog">
 <meta property="og:description" content="ADB means:android debug bridge,是调试Android设备的桥。开发电视经常需要敲一些adb命令，这里收藏一些常用的ADB命令。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-21T01:42:01.653Z">
+<meta property="og:updated_time" content="2020-08-20T02:24:08.573Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="adb 常用命令（持续更新）">
 <meta name="twitter:description" content="ADB means:android debug bridge,是调试Android设备的桥。开发电视经常需要敲一些adb命令，这里收藏一些常用的ADB命令。">
@@ -426,6 +426,8 @@
 <p><b>刷ROM命令:</b><br><br>adb connect IP 连接上盒子或者电视，盒子上插上带ROM的U盘，命令窗口输入 </p>
 <p>adb reboot recovery，之后盒子重启会直接读取ROM文件进行刷机了</p>
 <p>串口TTL：pm list packages 查看已安装应用</p>
+<p><b>内存检查命令:</b><br><br>cd /Users/joey/Library/Android/sdk/platform-tools</p>
+<p>./hprof-conv -z /Users/joey/Desktop/memory/memory-20200819T180839.hprof /Users/joey/Desktop/me.hprof</p>
 
       
     </div>
