@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/DJoeyZhang/"/>
-  <updated>2020-07-28T03:41:49.657Z</updated>
+  <updated>2020-08-20T15:31:31.491Z</updated>
   <id>https://github.com/DJoeyZhang/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>杂项(记一些遇到的问题)</title>
+    <link href="https://github.com/DJoeyZhang/archives/a96b87af.html"/>
+    <id>https://github.com/DJoeyZhang/archives/a96b87af.html</id>
+    <published>2020-08-20T15:30:37.000Z</published>
+    <updated>2020-08-20T15:31:31.491Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里记录一些工作遇到的问题，和平时的一些思考。<br><a id="more"></a><br>1、MacBook brew update 慢的问题。<br><a href="https://www.jianshu.com/p/edfe9af41117" target="_blank" rel="noopener">https://www.jianshu.com/p/edfe9af41117</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这里记录一些工作遇到的问题，和平时的一些思考。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Kotlin开发编码规范</title>
