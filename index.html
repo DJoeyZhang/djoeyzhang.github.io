@@ -810,7 +810,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  104  words
+                  134  words
                 </span>
               
 
@@ -851,6 +851,8 @@
           
             <h6 id="一、查看本地keystore文件（前提是有keystore的密码）"><a href="#一、查看本地keystore文件（前提是有keystore的密码）" class="headerlink" title="一、查看本地keystore文件（前提是有keystore的密码）"></a>一、查看本地keystore文件（前提是有keystore的密码）</h6><p>命令：keytool -list -v -keystore 目标文件路径<br></p>
 <h6 id="二、查看三方应用或是系统应用签名"><a href="#二、查看三方应用或是系统应用签名" class="headerlink" title="二、查看三方应用或是系统应用签名"></a>二、查看三方应用或是系统应用签名</h6><p>右键apk解压，目标文件是META-INF文件夹中的CERT.RSA文件，通过命令keytool.exe命令查看证书信息。可以查看签名的MD5、SHA1、SHA256值及签名算法<br><br>命令：keytool -printcert -file 目标文件路径。</p>
+<h6 id="三、内存检查命令"><a href="#三、内存检查命令" class="headerlink" title="三、内存检查命令:"></a>三、内存检查命令:</h6><p>cd /Users/joey/Library/Android/sdk/platform-tools</p>
+<p>./hprof-conv -z /Users/joey/Desktop/memory/memory-20200819T180839.hprof /Users/joey/Desktop/me.hprof</p>
 
           
         
