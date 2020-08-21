@@ -39,9 +39,9 @@
     <link href="https://github.com/DJoeyZhang/archives/a96b87af.html"/>
     <id>https://github.com/DJoeyZhang/archives/a96b87af.html</id>
     <published>2020-08-20T15:30:37.000Z</published>
-    <updated>2020-08-20T15:31:31.491Z</updated>
+    <updated>2020-08-21T12:14:45.236Z</updated>
     
-    <content type="html"><![CDATA[<p>这里记录一些工作遇到的问题，和平时的一些思考。<br><a id="more"></a><br>1、MacBook brew update 慢的问题。<br><a href="https://www.jianshu.com/p/edfe9af41117" target="_blank" rel="noopener">https://www.jianshu.com/p/edfe9af41117</a></p>]]></content>
+    <content type="html"><![CDATA[<p>这里记录一些工作遇到的问题，和平时的一些思考。<br><a id="more"></a><br>1、MacBook brew update 慢的问题。<br><a href="https://www.jianshu.com/p/edfe9af41117" target="_blank" rel="noopener">https://www.jianshu.com/p/edfe9af41117</a></p><p>2、在mac终端先cd对应目录，然后执行以下命令，目录下会多了一些jpg格式的图片。</p><p>for i in <em>.CR2; do sips -s format jpeg $i –out “${i%.</em>}.jpg”; done</p>]]></content>
     
     <summary type="html">
     
