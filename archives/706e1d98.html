@@ -96,17 +96,17 @@
 
 
 
-<meta name="description" content="目标和资源：    来话应用一期Android端上线后，希望以flutter重构业务逻辑，实现ADR/IOS双端上线。    目前组内可供开发人力，Android 3人，IOS/MACOS 2人。">
+<meta name="description" content="preface：应朋友邀请，去新公司做前端负责人。公司目前前端工作内容主要是后台管理界面。一些老的项目是vue开发维护的。技术栈主要在vue-admin和react-admin。记录整理的一些面试题，着重考察候选人前端基础和框架的熟悉程度，提升考察候选人对框架的理解和一些发散思维。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="来话应用Flutter重构可研">
-<meta property="og:url" content="https://github.com/DJoeyZhang/archives/61fe53de.html">
+<meta property="og:title" content="一些前端面试题">
+<meta property="og:url" content="https://github.com/DJoeyZhang/archives/706e1d98.html">
 <meta property="og:site_name" content="权译&#39;s  Blog">
-<meta property="og:description" content="目标和资源：    来话应用一期Android端上线后，希望以flutter重构业务逻辑，实现ADR/IOS双端上线。    目前组内可供开发人力，Android 3人，IOS/MACOS 2人。">
+<meta property="og:description" content="preface：应朋友邀请，去新公司做前端负责人。公司目前前端工作内容主要是后台管理界面。一些老的项目是vue开发维护的。技术栈主要在vue-admin和react-admin。记录整理的一些面试题，着重考察候选人前端基础和框架的熟悉程度，提升考察候选人对框架的理解和一些发散思维。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-31T05:37:06.341Z">
+<meta property="og:updated_time" content="2020-09-14T08:01:43.186Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="来话应用Flutter重构可研">
-<meta name="twitter:description" content="目标和资源：    来话应用一期Android端上线后，希望以flutter重构业务逻辑，实现ADR/IOS双端上线。    目前组内可供开发人力，Android 3人，IOS/MACOS 2人。">
+<meta name="twitter:title" content="一些前端面试题">
+<meta name="twitter:description" content="preface：应朋友邀请，去新公司做前端负责人。公司目前前端工作内容主要是后台管理界面。一些老的项目是vue开发维护的。技术栈主要在vue-admin和react-admin。记录整理的一些面试题，着重考察候选人前端基础和框架的熟悉程度，提升考察候选人对框架的理解和一些发散思维。">
 
 
 
@@ -135,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/DJoeyZhang/archives/61fe53de.html">
+  <link rel="canonical" href="https://github.com/DJoeyZhang/archives/706e1d98.html">
 
 
 
 
 
-  <title>来话应用Flutter重构可研 | 权译's  Blog</title>
+  <title>一些前端面试题 | 权译's  Blog</title>
   
 
 
@@ -276,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/DJoeyZhang/archives/61fe53de.html">
+    <link itemprop="mainEntityOfPage" href="https://github.com/DJoeyZhang/archives/706e1d98.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="权译">
@@ -293,7 +293,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">来话应用Flutter重构可研</h2>
+          <h2 class="post-title" itemprop="name headline">一些前端面试题</h2>
         
 
         <div class="post-meta">
@@ -305,8 +305,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-31T09:00:27+08:00">
-                2020-08-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-14T15:55:10+08:00">
+                2020-09-14
               </time>
               <br>
             
@@ -338,7 +338,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1.1k  words
+                  452  words
                 </span>
               
 
@@ -354,7 +354,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  4  minutes
+                  1  minutes
                 </span>
               
             </div>
@@ -375,40 +375,12 @@
       
 
       
-        <p>目标和资源：<br><br>    来话应用一期Android端上线后，希望以flutter重构业务逻辑，实现ADR/IOS双端上线。 <br><br>   目前组内可供开发人力，Android 3人，IOS/MACOS 2人。<br><a id="more"></a></p>
-<h5 id="一、工作拆解："><a href="#一、工作拆解：" class="headerlink" title="一、工作拆解："></a>一、工作拆解：</h5><h6 id="1、架构设计："><a href="#1、架构设计：" class="headerlink" title="1、架构设计："></a>1、架构设计：</h6><p>来话Android端架构设计：<br><br>模块化解耦合，抽取module_base,module_function,module_user,app四个模块，其中module_base承载应用的基类和MVVM框架设计，module_function和module_user承载产品的具体功能函数和用户的信息管理，app模块是整个应用的壳工程，用来对接一些三方SDK。工程采用了jetbrain anko,okhttp3/retrofit/rxjava/dagger2/glide等一系列流行框架作为脚手架。<br></p>
-<p>来话Flutter端架构设计：<br><br>总体设计上可复用来话Android端架构。工具框架参考flutter开发者社区，大体覆盖了我方功能需求。但flutter所选框架在Adr/IOs双端的兼容性需要双端工程师进行调试。</p>
-<h6 id="2、Tencent-IM-SDK-SensorSDK-TingYun-SDK-XGPush的桥接（工作量大，重难点）"><a href="#2、Tencent-IM-SDK-SensorSDK-TingYun-SDK-XGPush的桥接（工作量大，重难点）" class="headerlink" title="2、Tencent IM SDK / SensorSDK / TingYun SDK / XGPush的桥接（工作量大，重难点）"></a>2、Tencent IM SDK / SensorSDK / TingYun SDK / XGPush的桥接（工作量大，重难点）</h6><p>以上四者SDK，分别提供了来话的 即时通话能力 、 商化统计能力 、 性能监控能力 、推送及接收消息能力。且此四者SDK并无Flutter版本，需要双端工程师根据SDK的开放API，选定合适版本进行桥接编写。</p>
-<h6 id="3、工具类封装、基类编写："><a href="#3、工具类封装、基类编写：" class="headerlink" title="3、工具类封装、基类编写："></a>3、工具类封装、基类编写：</h6><p>此工作采用Dart,由Adr工程师编写，IOS端工程师负责单侧调试。</p>
-<h6 id="4、功能页面的编写：（工作量大-且琐碎）"><a href="#4、功能页面的编写：（工作量大-且琐碎）" class="headerlink" title="4、功能页面的编写：（工作量大,且琐碎）"></a>4、功能页面的编写：（工作量大,且琐碎）</h6><p>此工作采用Dart,由Adr工程师编写，IOS端工程师负责单侧调试。</p>
-<h6 id="5、权限功能编写："><a href="#5、权限功能编写：" class="headerlink" title="5、权限功能编写："></a>5、权限功能编写：</h6><p>来话产品所需求（eg:静默下载，本地通讯录联系人等）的一系列敏感权限，IOS工程师需评估其对于上架审核有无影响。部分诸如强制更新，后台唤起等功能IOS端恐怕实现困难，需寻找替代方案。</p>
-<h5 id="二、风险评估："><a href="#二、风险评估：" class="headerlink" title="二、风险评估："></a>二、风险评估：</h5><h6 id="1、-开发人员技术栈现状："><a href="#1、-开发人员技术栈现状：" class="headerlink" title="1、 开发人员技术栈现状："></a>1、 开发人员技术栈现状：</h6><p>有flutter开发经验的Android工程师仅1人。其余四人需要培训学习后兼顾进行开发，人力投入上难以 all in。</p>
-<h6 id="2、-应用权限申请："><a href="#2、-应用权限申请：" class="headerlink" title="2、 应用权限申请："></a>2、 应用权限申请：</h6><p>来话Android端申请了许多诸如：通讯录读取、静默下载、浮动在上层应用等敏感权限。IOS端恐怕无法申请并过审。</p>
-<h5 id="三、开发、协作模式："><a href="#三、开发、协作模式：" class="headerlink" title="三、开发、协作模式："></a>三、开发、协作模式：</h5><p>人力现状：<br>Android工程师充足，但手中有其他工作；IOS工程师人力少，手中有其他工作且处于异地。</p>
-<h6 id="建议的协作开发模式："><a href="#建议的协作开发模式：" class="headerlink" title="建议的协作开发模式："></a>建议的协作开发模式：</h6><p>1、Android端先行进入调研开发。工作优先级：SDK的桥接封装协议制定及编码 &gt; 框架设计、基类、工具编写 &gt; 具体功能界面编写实现。</p>
-<p>2、IOS端待SDK封装协议制定后进入开发。根据Android端开发进度进行适配(android端需制定短期里程碑计划，定期输出flutter编码供IOS端适配调试)。</p>
-<h5 id="四、工期评估："><a href="#四、工期评估：" class="headerlink" title="四、工期评估："></a>四、工期评估：</h5><h6 id="1、SDK封装协议及编码开发：-—-共计：30人日"><a href="#1、SDK封装协议及编码开发：-—-共计：30人日" class="headerlink" title="1、SDK封装协议及编码开发： —-共计：30人日"></a>1、SDK封装协议及编码开发： —-共计：30人日</h6><pre><code>Tencent IM SDK 桥接协议制定编写。----7人日
-SensorSDK 桥接协议制定编写。----7人日
-TingYun SDK 桥接协议制定编写。----7人日
-XGPush SDK 桥接协议制定编写。----7人日
-调试自测。 ----2人日
-</code></pre><h6 id="2、架构设计、框架开发：-—-共计：6人日"><a href="#2、架构设计、框架开发：-—-共计：6人日" class="headerlink" title="2、架构设计、框架开发： —-共计：6人日"></a>2、架构设计、框架开发： —-共计：6人日</h6><pre><code>工程架构搭建。----2人日
-依赖管理。----2人日
-调试自测。 ----2人日
-</code></pre><h6 id="3、功能页面编写：-—-共计：45人日"><a href="#3、功能页面编写：-—-共计：45人日" class="headerlink" title="3、功能页面编写： —- 共计：45人日"></a>3、功能页面编写： —- 共计：45人日</h6><pre><code>首页通话记录模块。----2人日
-首页通讯录模块。 ----2人日
-首页设置模块。----1人日
-消息模块。----2人日
-预约功能模块。 ---- 3人日
-多选联系人功能模块。 ----3人日
-设置模块、关于模块、扫一扫添加联系人模块。----3人日
-添加联系人、通讯录校验、好友邀请模块。----4人日
-下载升级功能。 ----3人日
-单人、多人通话功能。 ----14人日
-登陆注册模块。----2人日
-所有模块埋点统计。----2人日
-调试自测。 ----4人日
-</code></pre><h6 id="4、基类、工具类编写：-—-共计：5人日"><a href="#4、基类、工具类编写：-—-共计：5人日" class="headerlink" title="4、基类、工具类编写： —-共计：5人日"></a>4、基类、工具类编写： —-共计：5人日</h6><h6 id="5、权限体系编写：-—-6人日"><a href="#5、权限体系编写：-—-6人日" class="headerlink" title="5、权限体系编写： —-6人日"></a>5、权限体系编写： —-6人日</h6><p>共计：92人日。（预估前提：在重构工作无产品干预的前提下，仅以我个人开发能力all in状态进行Android端flutter重构的乐观评估。IOS侧适配工期需IOS工程师另行评估）</p>
+        <p>preface：<br><br>应朋友邀请，去新公司做前端负责人。公司目前前端工作内容主要是后台管理界面。一些老的项目是vue开发维护的。技术栈主要在vue-admin和react-admin。<br><br>记录整理的一些面试题，着重考察候选人前端基础和框架的熟悉程度，提升考察候选人对框架的理解和一些发散思维。<br><a id="more"></a></p>
+<h5 id="考察范围："><a href="#考察范围：" class="headerlink" title="考察范围："></a>考察范围：<br></h5><h6 id="一、JS基础考察："><a href="#一、JS基础考察：" class="headerlink" title="一、JS基础考察："></a>一、JS基础考察：<br></h6><p>1、闭包和作用域,箭头函数中的this。<br><br>2、深浅拷贝的区别。<br><br>3、http\https\websocket区别和使用场景，常用的请求方法及状态码。<br><br>4、浏览器缓存。强缓存和协商缓存区别。<br></p>
+<h6 id="二、Vue基础考察"><a href="#二、Vue基础考察" class="headerlink" title="二、Vue基础考察:"></a>二、Vue基础考察:<br></h6><p>1、组件生命周期？哪个钩子函数中可以拿到Dom节点, 在created还是mounted？<br><br>2、父子组件通信，事件和属性的传递模式。<br><br>3、MVC \ MVVM 的理解？Vue借鉴了哪种模式？双向绑定的数据，变量污染如何排查。<br><br>4、数据驱动父组件重绘时，部分子组件不想重绘，如何做? (keep=alive) <br></p>
+<h6 id="三、React基础考察"><a href="#三、React基础考察" class="headerlink" title="三、React基础考察:"></a>三、React基础考察:<br></h6><p>1、组件key的作用。<br><br>2、lodash 防抖和节流。<br><br>3、组件生命周期，网络请求通常写在哪个钩子上？虚拟DOM 的diff算法处理，shouldupdate回调时机，顺便问问渲染性能优化。<br><br>5、vuex和Redux的设计和作用。<br></p>
+<h6 id="四、针对简历项目提问考察"><a href="#四、针对简历项目提问考察" class="headerlink" title="四、针对简历项目提问考察"></a>四、针对简历项目提问考察<br></h6><h6 id="五、发散思维考察："><a href="#五、发散思维考察：" class="headerlink" title="五、发散思维考察："></a>五、发散思维考察：<br></h6><p>1、JQ和vue\react比较，JQ有哪些缺陷。<br><br>2、从浏览器地址栏输入url到页面加载渲染出来，都发生了什么。<br><br>3、职业规划。期望薪资。<br></p>
+<h5 id="六、评价维度："><a href="#六、评价维度：" class="headerlink" title="六、评价维度："></a>六、评价维度：<br></h5><p>1、基础知识<br><br>2、框架熟悉度<br><br>3、语言表达、协作沟通能力<br><br>4、可塑性（学习意愿）<br></p>
 
       
     </div>
@@ -462,8 +434,8 @@ XGPush SDK 桥接协议制定编写。----7人日
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/archives/70f14e75.html" rel="next" title="记录一些好用的配置工具和lint配置">
-                <i class="fa fa-chevron-left"></i> 记录一些好用的配置工具和lint配置
+              <a href="/archives/f67afe4b.html" rel="next" title="关于Flutter的一些脚手架和不错的博文（持续更新）">
+                <i class="fa fa-chevron-left"></i> 关于Flutter的一些脚手架和不错的博文（持续更新）
               </a>
             
           </div>
@@ -471,10 +443,6 @@ XGPush SDK 桥接协议制定编写。----7人日
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/archives/f67afe4b.html" rel="prev" title="关于Flutter的一些脚手架和不错的博文（持续更新）">
-                关于Flutter的一些脚手架和不错的博文（持续更新） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -642,7 +610,7 @@ XGPush SDK 桥接协议制定编写。----7人日
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#一、工作拆解："><span class="nav-number">1.</span> <span class="nav-text">一、工作拆解：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1、架构设计："><span class="nav-number">1.1.</span> <span class="nav-text">1、架构设计：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2、Tencent-IM-SDK-SensorSDK-TingYun-SDK-XGPush的桥接（工作量大，重难点）"><span class="nav-number">1.2.</span> <span class="nav-text">2、Tencent IM SDK / SensorSDK / TingYun SDK / XGPush的桥接（工作量大，重难点）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3、工具类封装、基类编写："><span class="nav-number">1.3.</span> <span class="nav-text">3、工具类封装、基类编写：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4、功能页面的编写：（工作量大-且琐碎）"><span class="nav-number">1.4.</span> <span class="nav-text">4、功能页面的编写：（工作量大,且琐碎）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5、权限功能编写："><span class="nav-number">1.5.</span> <span class="nav-text">5、权限功能编写：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二、风险评估："><span class="nav-number">2.</span> <span class="nav-text">二、风险评估：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1、-开发人员技术栈现状："><span class="nav-number">2.1.</span> <span class="nav-text">1、 开发人员技术栈现状：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2、-应用权限申请："><span class="nav-number">2.2.</span> <span class="nav-text">2、 应用权限申请：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三、开发、协作模式："><span class="nav-number">3.</span> <span class="nav-text">三、开发、协作模式：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#建议的协作开发模式："><span class="nav-number">3.1.</span> <span class="nav-text">建议的协作开发模式：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#四、工期评估："><span class="nav-number">4.</span> <span class="nav-text">四、工期评估：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1、SDK封装协议及编码开发：-—-共计：30人日"><span class="nav-number">4.1.</span> <span class="nav-text">1、SDK封装协议及编码开发： —-共计：30人日</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2、架构设计、框架开发：-—-共计：6人日"><span class="nav-number">4.2.</span> <span class="nav-text">2、架构设计、框架开发： —-共计：6人日</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3、功能页面编写：-—-共计：45人日"><span class="nav-number">4.3.</span> <span class="nav-text">3、功能页面编写： —- 共计：45人日</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4、基类、工具类编写：-—-共计：5人日"><span class="nav-number">4.4.</span> <span class="nav-text">4、基类、工具类编写： —-共计：5人日</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5、权限体系编写：-—-6人日"><span class="nav-number">4.5.</span> <span class="nav-text">5、权限体系编写： —-6人日</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#考察范围："><span class="nav-number">1.</span> <span class="nav-text">考察范围：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#一、JS基础考察："><span class="nav-number">1.1.</span> <span class="nav-text">一、JS基础考察：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#二、Vue基础考察"><span class="nav-number">1.2.</span> <span class="nav-text">二、Vue基础考察:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#三、React基础考察"><span class="nav-number">1.3.</span> <span class="nav-text">三、React基础考察:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#四、针对简历项目提问考察"><span class="nav-number">1.4.</span> <span class="nav-text">四、针对简历项目提问考察</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#五、发散思维考察："><span class="nav-number">1.5.</span> <span class="nav-text">五、发散思维考察：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#六、评价维度："><span class="nav-number">2.</span> <span class="nav-text">六、评价维度：</span></a></li></ol></div>
             
 
           </div>
