@@ -497,7 +497,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  134  words
+                  155  words
                 </span>
               
 
@@ -540,6 +540,7 @@
 <h6 id="二、查看三方应用或是系统应用签名"><a href="#二、查看三方应用或是系统应用签名" class="headerlink" title="二、查看三方应用或是系统应用签名"></a>二、查看三方应用或是系统应用签名</h6><p>右键apk解压，目标文件是META-INF文件夹中的CERT.RSA文件，通过命令keytool.exe命令查看证书信息。可以查看签名的MD5、SHA1、SHA256值及签名算法<br><br>命令：keytool -printcert -file 目标文件路径。</p>
 <h6 id="三、内存检查命令"><a href="#三、内存检查命令" class="headerlink" title="三、内存检查命令:"></a>三、内存检查命令:</h6><p>cd /Users/joey/Library/Android/sdk/platform-tools</p>
 <p>./hprof-conv -z /Users/joey/Desktop/memory/memory-20200819T180839.hprof /Users/joey/Desktop/me.hprof</p>
+<h6 id="四、后台启动-jar"><a href="#四、后台启动-jar" class="headerlink" title="四、后台启动.jar"></a>四、后台启动.jar</h6><p>java -jar spring-boot01-1.0-SNAPSHOT.jar &gt; log.file 2&gt;&amp;1 &amp;</p>
 
           
         
