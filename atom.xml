@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/DJoeyZhang/"/>
-  <updated>2020-11-09T08:42:01.009Z</updated>
+  <updated>2020-11-09T09:07:13.989Z</updated>
   <id>https://github.com/DJoeyZhang/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://github.com/DJoeyZhang/archives/107df62c.html"/>
     <id>https://github.com/DJoeyZhang/archives/107df62c.html</id>
     <published>2020-11-09T08:41:14.000Z</published>
-    <updated>2020-11-09T08:42:01.009Z</updated>
+    <updated>2020-11-09T09:07:13.989Z</updated>
     
-    <content type="html"><![CDATA[<p>命令总记不住，常用的收藏一下。<br><a id="more"></a><br>1、后台启动springboot jar包<br>nohup java -jar 自己的springboot项目.jar &gt;日志文件名.log 2&gt;&amp;1 &amp;</p>]]></content>
+    <content type="html"><![CDATA[<p>命令总记不住，常用的收藏一下。<br><a id="more"></a><br>1、后台启动springboot jar包<br>nohup java -jar 自己的springboot项目.jar &gt;日志文件名.log 2&gt;&amp;1 &amp;<br>2、查看所有端口状态<br>ps aux</p>]]></content>
     
     <summary type="html">
     
