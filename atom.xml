@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/DJoeyZhang/"/>
-  <updated>2020-10-28T00:59:34.367Z</updated>
+  <updated>2020-11-09T08:42:01.009Z</updated>
   <id>https://github.com/DJoeyZhang/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>常用Linux 速查</title>
+    <link href="https://github.com/DJoeyZhang/archives/107df62c.html"/>
+    <id>https://github.com/DJoeyZhang/archives/107df62c.html</id>
+    <published>2020-11-09T08:41:14.000Z</published>
+    <updated>2020-11-09T08:42:01.009Z</updated>
+    
+    <content type="html"><![CDATA[<p>命令总记不住，常用的收藏一下。<br><a id="more"></a><br>1、后台启动springboot jar包<br>nohup java -jar 自己的springboot项目.jar &gt;日志文件名.log 2&gt;&amp;1 &amp;</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;命令总记不住，常用的收藏一下。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Web端录音拍照及音视频解决方案调研报告</title>
@@ -373,28 +391,6 @@
     <summary type="html">
     
       &lt;p&gt;我们经常会需要创建一个这样的类：仅用于承载数据，而无其他作用。这样的类中一些标准函数通常可以从数据中机械性的生成。在kotlin中，这种类叫做data class,被标记为 data。（e.g:java中的bean类与其set，get，toString等方法）。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="android" scheme="https://github.com/DJoeyZhang/tags/android/"/>
-    
-      <category term="kotlin" scheme="https://github.com/DJoeyZhang/tags/kotlin/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kotlin学习（二）：apply vs with</title>
-    <link href="https://github.com/DJoeyZhang/archives/8b7dec41.html"/>
-    <id>https://github.com/DJoeyZhang/archives/8b7dec41.html</id>
-    <published>2020-01-23T09:43:00.000Z</published>
-    <updated>2020-02-04T08:41:06.923Z</updated>
-    
-    <content type="html"><![CDATA[<h5 id="apply-vs-with"><a href="#apply-vs-with" class="headerlink" title="apply vs with"></a>apply vs with</h5><p>Kotlin中有很多优秀的特性，我们可以利用这些特性在Kotlin中编写更好的应用程序。在所有这些特性中，apply和with是重要的特性。我们必须知道什么时候用哪一个。<br><a id="more"></a></p><h5 id="何时使用“apply”，何时使用“with”？"><a href="#何时使用“apply”，何时使用“with”？" class="headerlink" title="何时使用“apply”，何时使用“with”？"></a>何时使用“apply”，何时使用“with”？</h5><p>根据定义，apply接受一个函数，并将其作用域设置为调用apply的对象的作用域。这意味着不需要显式引用对象。Apply（）当然不仅仅是简单地设置属性。它是一个转换函数，能够在返回之前评估复杂的逻辑。最后，函数只返回相同的对象（添加了更改），因此可以在同一行代码中继续使用它。</p><h5 id="让我们看看“apply”和“with”之间的区别。"><a href="#让我们看看“apply”和“with”之间的区别。" class="headerlink" title="让我们看看“apply”和“with”之间的区别。"></a>让我们看看“apply”和“with”之间的区别。</h5><p>主要有两个区别：</p><ul><li>apply接受一个实例作为接收器，而with要求将一个实例作为参数传递。在这两种情况下，实例都将成为一个块内的实例。</li><li>apply返回接收器，with返回其块中最后一个表达式的结果。</li></ul><p>通常在需要对对象执行操作并返回时使用apply。当需要对某个对象执行某些操作并返回可用于的其他对象时。</p><h5 id="Example-of-apply"><a href="#Example-of-apply" class="headerlink" title="Example of apply"></a>Example of apply</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fun getDeveloper(): Developer &#123;</span><br><span class="line">    return Developer().apply &#123;</span><br><span class="line">        developerName = &quot;Amit Shekhar&quot;</span><br><span class="line">        developerAge = 22</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h5 id="Example-of-with"><a href="#Example-of-with" class="headerlink" title="Example of with"></a>Example of with</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fun getPersonFromDeveloper(developer: Developer): Person &#123;</span><br><span class="line">    return with(developer) &#123;</span><br><span class="line">        Person(developerName, developerAge)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h5 id=&quot;apply-vs-with&quot;&gt;&lt;a href=&quot;#apply-vs-with&quot; class=&quot;headerlink&quot; title=&quot;apply vs with&quot;&gt;&lt;/a&gt;apply vs with&lt;/h5&gt;&lt;p&gt;Kotlin中有很多优秀的特性，我们可以利用这些特性在Kotlin中编写更好的应用程序。在所有这些特性中，apply和with是重要的特性。我们必须知道什么时候用哪一个。&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
