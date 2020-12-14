@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="android,kotlin,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -96,18 +96,17 @@
 
 
 
-<meta name="description" content="我们经常会需要创建一个这样的类：仅用于承载数据，而无其他作用。这样的类中一些标准函数通常可以从数据中机械性的生成。在kotlin中，这种类叫做data class,被标记为 data。（e.g:java中的bean类与其set，get，toString等方法）。">
-<meta name="keywords" content="android,kotlin">
+<meta name="description" content="团队还在刀耕火种，各种word文档满天飞，实在不能忍，于是在测试服务器上折腾了一个confluence方便团队协作。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kotlin学习（三）：Data Class">
-<meta property="og:url" content="https://github.com/DJoeyZhang/archives/54c86970.html">
+<meta property="og:title" content="centos折腾confluence攻略">
+<meta property="og:url" content="https://github.com/DJoeyZhang/archives/e24d78dd.html">
 <meta property="og:site_name" content="权译&#39;s  Blog">
-<meta property="og:description" content="我们经常会需要创建一个这样的类：仅用于承载数据，而无其他作用。这样的类中一些标准函数通常可以从数据中机械性的生成。在kotlin中，这种类叫做data class,被标记为 data。（e.g:java中的bean类与其set，get，toString等方法）。">
+<meta property="og:description" content="团队还在刀耕火种，各种word文档满天飞，实在不能忍，于是在测试服务器上折腾了一个confluence方便团队协作。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-04T08:41:20.020Z">
+<meta property="og:updated_time" content="2020-12-14T01:42:06.089Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kotlin学习（三）：Data Class">
-<meta name="twitter:description" content="我们经常会需要创建一个这样的类：仅用于承载数据，而无其他作用。这样的类中一些标准函数通常可以从数据中机械性的生成。在kotlin中，这种类叫做data class,被标记为 data。（e.g:java中的bean类与其set，get，toString等方法）。">
+<meta name="twitter:title" content="centos折腾confluence攻略">
+<meta name="twitter:description" content="团队还在刀耕火种，各种word文档满天飞，实在不能忍，于是在测试服务器上折腾了一个confluence方便团队协作。">
 
 
 
@@ -136,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/DJoeyZhang/archives/54c86970.html">
+  <link rel="canonical" href="https://github.com/DJoeyZhang/archives/e24d78dd.html">
 
 
 
 
 
-  <title>Kotlin学习（三）：Data Class | 权译's  Blog</title>
+  <title>centos折腾confluence攻略 | 权译's  Blog</title>
   
 
 
@@ -277,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/DJoeyZhang/archives/54c86970.html">
+    <link itemprop="mainEntityOfPage" href="https://github.com/DJoeyZhang/archives/e24d78dd.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="权译">
@@ -294,7 +293,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Kotlin学习（三）：Data Class</h2>
+          <h2 class="post-title" itemprop="name headline">centos折腾confluence攻略</h2>
         
 
         <div class="post-meta">
@@ -306,8 +305,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-04T10:59:00+08:00">
-                2020-02-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-12-14T09:10:58+08:00">
+                2020-12-14
               </time>
               <br>
             
@@ -339,7 +338,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  384  words
+                  1.4k  words
                 </span>
               
 
@@ -355,7 +354,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1  minutes
+                  5  minutes
                 </span>
               
             </div>
@@ -376,23 +375,71 @@
       
 
       
-        <p>我们经常会需要创建一个这样的类：仅用于承载数据，而无其他作用。这样的类中一些标准函数通常可以从数据中机械性的生成。在kotlin中，这种类叫做data class,被标记为 data。（e.g:java中的bean类与其set，get，toString等方法）。<br><a id="more"></a></p>
-<h6 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h6><h6 id="In-Java"><a href="#In-Java" class="headerlink" title="In Java"></a>In Java</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">public class Developer &#123;</span><br><span class="line"></span><br><span class="line">    private String name;</span><br><span class="line">    private int age;</span><br><span class="line"></span><br><span class="line">    public Developer(String name, int age) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">        this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getName() &#123;</span><br><span class="line">        return name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setName(String name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int getAge() &#123;</span><br><span class="line">        return age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setAge(int age) &#123;</span><br><span class="line">        this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean equals(Object o) &#123;</span><br><span class="line">        if (this == o) return true;</span><br><span class="line">        if (o == null || getClass() != o.getClass()) return false;</span><br><span class="line"></span><br><span class="line">        Developer developer = (Developer) o;</span><br><span class="line"></span><br><span class="line">        if (age != developer.age) return false;</span><br><span class="line">        return name != null ? name.equals(developer.name) : developer.name == null;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public int hashCode() &#123;</span><br><span class="line">        int result = name != null ? name.hashCode() : 0;</span><br><span class="line">        result = 31 * result + age;</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;Developer&#123;&quot; +</span><br><span class="line">                &quot;name=&apos;&quot; + name + &apos;\&apos;&apos; +</span><br><span class="line">                &quot;, age=&quot; + age +</span><br><span class="line">                &apos;&#125;&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h6 id="In-Kotlin"><a href="#In-Kotlin" class="headerlink" title="In Kotlin"></a>In Kotlin</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data class Developer(val name: String, val age: Int)</span><br></pre></td></tr></table></figure>
-<p>当一个类被标记为 data class时，你不需要像Java中那样，去实现或者创建以下这些方法。</p>
-<ul>
-<li>hashCode()</li>
-<li>equals()</li>
-<li>toString()</li>
-<li>copy()</li>
-</ul>
-<p>编译器会自动地创建这些内部关联，所以kotlin同样引领了一个使代码整洁的潮流。<br><br>尽管如此，data class 需要满足的需求很少：</p>
-<ul>
-<li>主构造函数需要至少一个参数。</li>
-<li>所有的主构造函数参数需要被标记为val 或者 var。</li>
-<li>Data Class不能是 abstract, open, sealed or inner这些类别.</li>
-</ul>
-<p>所以，当你遇到这些场景，使用data class吧</p>
+        <p>团队还在刀耕火种，各种word文档满天飞，实在不能忍，于是在测试服务器上折腾了一个confluence方便团队协作。<br><a id="more"></a></p>
+<h5 id="先提炼几个经常用的命令"><a href="#先提炼几个经常用的命令" class="headerlink" title="先提炼几个经常用的命令"></a>先提炼几个经常用的命令</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">启动wiki&lt;br&gt;</span><br><span class="line">/etc/init.d/confluence start</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">停止wiki服务&lt;br&gt;</span><br><span class="line">/etc/init.d/confluence stop</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">重启服务&lt;br&gt;</span><br><span class="line">/etc/init.d/confluence restart</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">卸载&lt;br&gt;</span><br><span class="line">/etc/init.d/confluence stop</span><br><span class="line">/opt/atlassian/confluence/uninstall</span><br><span class="line">rm -rf /opt/atlassian</span><br><span class="line">rm -rf /var/atlassian</span><br><span class="line">drop database wiki //登录数据库&lt;br&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="好了，征文开始"><a href="#好了，征文开始" class="headerlink" title="好了，征文开始"></a>好了，征文开始</h5><p>系统：本机MacOS远程向CentOS6.6服务器安装wiki</p>
+<p>wiki版本：5.4.4</p>
+<p>文件：<a href="http://www.fengyachao.com/file/confluence.zip" target="_blank" rel="noopener">www.fengyachao.com/file/confluence.zip</a></p>
+<p>开始</p>
+<p>0.下载文件并解压，将下载的压缩文件上传到CentOS，解压缩</p>
+<p>1.登录CentOS，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x atlassian-confluence-5.4.4-x64_1.bin</span><br><span class="line">./atlassian-confluence-5.4.4-x64_1.bin</span><br></pre></td></tr></table></figure>
+<p>执行bin文件后，会经历三个确认</p>
+<p>第一个，是否确认安装。[o]</p>
+<p>第二个，选择安装方式，默认、自定义、升级现有的。[1]</p>
+<p>第三个，确认安装。[i]</p>
+<p>注：此时，安装已完成，不应该出现任何错误</p>
+<p>2.http访问</p>
+<p>观察第一步安装信息，可知，confluence打开8090端口。</p>
+<p>访问 <a href="http://your.centos.ip:8090" target="_blank" rel="noopener">http://your.centos.ip:8090</a> 记录此页面中的Server ID</p>
+<p>3.停止wiki服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/confluence stop</span><br></pre></td></tr></table></figure></p>
+<p>4.将atlassian-extras-2.4.jar拷贝到本机，准备进行破解注：我这里是mac，所以如果你是windows或linux，用你的办法将文件拷贝到本地</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp user_name@your.centos.ip:/opt/atlassian/confluence/confluence/WEB-INF/lib/atlassian-extras-2.4.jar .</span><br></pre></td></tr></table></figure>
+<p>5.解压下载的压缩包后，里面有confluence5.1-crack.zip，将其解压得到confluence5.1-crack文件夹</p>
+<p>将从centos下载下来的atlassian-extras-2.4.jar覆盖confluence5.1-crack里的atlassian-extras-2.4.jar</p>
+<p>进入confluence5.1-crack/iNVISIBLE</p>
+<p>MAC对应keygen_MacOSX.sh(linux对应keygen.sh)</p>
+<p>由于我chmod +x keygen_MacOSX.sh后执行./keygen_MacOSX.sh报错，所以我打开keygen_MacOSX.sh看到其核心代码即是执行confluence_keygen.jar。于是，我直接执行下面命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home/bin/java -jar confluence_keygen.jar</span><br></pre></td></tr></table></figure></p>
+<p>此时，会弹出UI界面</p>
+<p>填写相关信息(name别太短)，最重要的是serverId，填写第二步获取的ServerId。</p>
+<p>点击”patch!”，选择第四步从centos下载下来的放在confluence5.1-crack里的atlassian-extras-2.4.jar</p>
+<p>点击”.gen!”， key文本框里会生成相应信息</p>
+<p>6.此时confluence5.1-crack里会有atlassian-extras-2.4.jar和atlassian-extras-2.4.bak</p>
+<p>将atlassian-extras-2.4.jar拷贝到服务器的/opt/atlassian/confluence/confluence/WEB-INF/lib/位置，覆盖此处的文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp atlassian-extras-2.4.jar user_name@your.centos.ip:/opt/atlassian/confluence/confluence/WEB-INF/lib/</span><br></pre></td></tr></table></figure></p>
+<p>7.启动wiki</p>
+<p>/etc/init.d/confluence start<br>8.将第五步生成的key，拷贝放在第二步页面的License Key位置</p>
+<p>9.点击“production installation”</p>
+<p>10.在centos服务器上,将mysql驱动包放到confluence里<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp mysql-connector-java-5.1.24/mysql-connector-java-5.1.24-bin.jar /opt/atlassian/confluence/confluence/WEB-INF/lib/</span><br></pre></td></tr></table></figure></p>
+<p>11.重启服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/confluence restart</span><br></pre></td></tr></table></figure></p>
+<p>12.在页面上，选择数据库“MySQL”，点击“ Externam Database”</p>
+<p>13.登录mysql 创建数据库及账号</p>
+<p>我是在centos上有安装好的mysql</p>
+<p>注：5.4.4版本的confluence，貌似对mysql的存储引擎有要求，需要是InnoDB(我第一次没有改，用的MyISAM，下一步就出错了)。</p>
+<p> show variables like ‘%storage_engine%’;//查看默认存储引擎<br>如果是MyISAM的话，在/etc/my.cnf文件[mysqld]下添加default-storage-engine=InnoDB，重启mysql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/mysqld restart</span><br><span class="line">mysql -uroot -p</span><br><span class="line">create database wiki character set UTF8;</span><br><span class="line">grant all on wiki.* to wiki_user@&quot;%&quot; identified by &quot;wiki_password&quot;;</span><br></pre></td></tr></table></figure></p>
+<p>14.在页面上点击“Direct JDBC”</p>
+<p>15.填写db信息</p>
+<p>Driver Class Name不用变</p>
+<p>Database URL，修正对应ip、port、database，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jdbc:mysql://localhost:3306/wiki?useUnicode=true&amp;characterEncoding=UTF8&amp;sessionVariables=storage_engine%3DInnoDB</span><br></pre></td></tr></table></figure></p>
+<p>上面的连接符是”&amp;”不是”&amp;”，这样是没有问题的，如果你要用”&amp;”也可以尝试，但后面可能出错</p>
+<p>User Name和Password填写第13步创建的用户名密码即可</p>
+<p>16.点击“Next”，此时可能会有一个比较长的等待，如果此处出错了，停掉wiki服务，卸载wiki，删掉wiki文件，卸载数据库，从第一步重新来。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/confluence stop</span><br><span class="line">/opt/atlassian/confluence/uninstall</span><br><span class="line">rm -rf /opt/atlassian</span><br><span class="line">rm -rf /var/atlassian</span><br><span class="line">drop database wiki //登录数据库</span><br></pre></td></tr></table></figure></p>
+<p>此处可能出错的原因：</p>
+<p>第2步使用域名，没用ip:port</p>
+<p>第13步没设置默认存储引擎为InnoDB</p>
+<p>第15步，ip、port、db或连接符不正确</p>
+<p>当出现错误后，不要试图点击后退，修改信息，再尝试点击“Next”。直接按本步所说的做相关卸载操作，并修正产生问题的地方，从第一步开始。</p>
+<p>17.如果上一步成功的话，点击“Empty Site”。你也可以点击“Example Site”。</p>
+<p>18.点击“Manage users and groups within Confluence”，设置管理员相关信息。这里是“下一步”还是“确定”忘了，点击即可</p>
+<p>19.点击further configuration</p>
+<p>20.登录wiki，点击右上角齿轮图标下拉菜单最后一个菜单（插件），点击“upload add-on”，选择解压文件夹里的“Confluence-Language-STD-CN.jar”</p>
+<p>21.很重要</p>
+<p>vim /var/atlassian/application-data/confluence/confluence.cfg.xml<br>编辑此配置文件中“hibernate.connection.url”，注意连接符“&amp;”此处可能变为了“&amp;amp;”，要修改为“&amp;”修改完后重启wiki<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/confluence restart</span><br></pre></td></tr></table></figure></p>
+<p>如果不进行此步骤，创建一些中文的内容，重启wiki，会让所有中文乱码，数据库里的数据都是乱码。</p>
+<p>21.设置base url，job，创建空间，空间权限，用户等</p>
+<p>22.添加一些中文内容后，重启wiki，再访问页面，看是否乱码，如果不乱码基本就没问题了</p>
 
       
     </div>
@@ -437,14 +484,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/android/" rel="tag"><i class="fa fa-tag"></i> android</a>
-          
-            <a href="/tags/kotlin/" rel="tag"><i class="fa fa-tag"></i> kotlin</a>
-          
-        </div>
-      
 
       
       
@@ -454,8 +493,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/archives/8b7dec41.html" rel="next" title="Kotlin学习（二）：apply vs with">
-                <i class="fa fa-chevron-left"></i> Kotlin学习（二）：apply vs with
+              <a href="/archives/88b92f76.html" rel="next" title=".gitignore文件设置忽略不生效的问题">
+                <i class="fa fa-chevron-left"></i> .gitignore文件设置忽略不生效的问题
               </a>
             
           </div>
@@ -463,10 +502,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/archives/9105f5af.html" rel="prev" title="Kotlin学习（四）：Destructuring Declarations">
-                Kotlin学习（四）：Destructuring Declarations <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -634,7 +669,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#Example"><span class="nav-number">1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#In-Java"><span class="nav-number">2.</span> <span class="nav-text">In Java</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#In-Kotlin"><span class="nav-number">3.</span> <span class="nav-text">In Kotlin</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#先提炼几个经常用的命令"><span class="nav-number">1.</span> <span class="nav-text">先提炼几个经常用的命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#好了，征文开始"><span class="nav-number">2.</span> <span class="nav-text">好了，征文开始</span></a></li></ol></div>
             
 
           </div>
