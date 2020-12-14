@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="权译&#39;s  Blog">
 <meta property="og:description" content="团队还在刀耕火种，各种word文档满天飞，实在不能忍，于是在测试服务器上折腾了一个confluence方便团队协作。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-14T01:42:06.089Z">
+<meta property="og:updated_time" content="2020-12-14T02:09:44.600Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="centos折腾confluence攻略">
 <meta name="twitter:description" content="团队还在刀耕火种，各种word文档满天飞，实在不能忍，于是在测试服务器上折腾了一个confluence方便团队协作。">
@@ -354,7 +354,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  5  minutes
+                  6  minutes
                 </span>
               
             </div>
@@ -380,6 +380,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">停止wiki服务&lt;br&gt;</span><br><span class="line">/etc/init.d/confluence stop</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">重启服务&lt;br&gt;</span><br><span class="line">/etc/init.d/confluence restart</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">卸载&lt;br&gt;</span><br><span class="line">/etc/init.d/confluence stop</span><br><span class="line">/opt/atlassian/confluence/uninstall</span><br><span class="line">rm -rf /opt/atlassian</span><br><span class="line">rm -rf /var/atlassian</span><br><span class="line">drop database wiki //登录数据库&lt;br&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="关于confluence存储原理，方便迁移"><a href="#关于confluence存储原理，方便迁移" class="headerlink" title="关于confluence存储原理，方便迁移"></a>关于confluence存储原理，方便迁移</h5><p><a href="https://zhuanlan.zhihu.com/p/38625186" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/38625186</a></p>
 <h5 id="好了，征文开始"><a href="#好了，征文开始" class="headerlink" title="好了，征文开始"></a>好了，征文开始</h5><p>系统：本机MacOS远程向CentOS6.6服务器安装wiki</p>
 <p>wiki版本：5.4.4</p>
 <p>文件：<a href="http://www.fengyachao.com/file/confluence.zip" target="_blank" rel="noopener">www.fengyachao.com/file/confluence.zip</a></p>
@@ -669,7 +670,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#先提炼几个经常用的命令"><span class="nav-number">1.</span> <span class="nav-text">先提炼几个经常用的命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#好了，征文开始"><span class="nav-number">2.</span> <span class="nav-text">好了，征文开始</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#先提炼几个经常用的命令"><span class="nav-number">1.</span> <span class="nav-text">先提炼几个经常用的命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关于confluence存储原理，方便迁移"><span class="nav-number">2.</span> <span class="nav-text">关于confluence存储原理，方便迁移</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#好了，征文开始"><span class="nav-number">3.</span> <span class="nav-text">好了，征文开始</span></a></li></ol></div>
             
 
           </div>
