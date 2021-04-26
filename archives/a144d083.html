@@ -96,17 +96,17 @@
 
 
 
-<meta name="description" content="目标和资源：    来话应用一期Android端上线后，希望以flutter重构业务逻辑，实现ADR/IOS双端上线。    目前组内可供开发人力，Android 3人，IOS/MACOS 2人。">
+<meta name="description" content="团队还在刀耕火种，各种word文档满天飞，实在不能忍，于是在测试服务器上折腾了一个confluence方便团队协作。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="来话应用Flutter重构可研">
-<meta property="og:url" content="https://github.com/DJoeyZhang/archives/61fe53de.html">
+<meta property="og:title" content="centos折腾confluence攻略">
+<meta property="og:url" content="https://github.com/DJoeyZhang/archives/a144d083.html">
 <meta property="og:site_name" content="权译&#39;s  Blog">
-<meta property="og:description" content="目标和资源：    来话应用一期Android端上线后，希望以flutter重构业务逻辑，实现ADR/IOS双端上线。    目前组内可供开发人力，Android 3人，IOS/MACOS 2人。">
+<meta property="og:description" content="团队还在刀耕火种，各种word文档满天飞，实在不能忍，于是在测试服务器上折腾了一个confluence方便团队协作。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-31T05:37:06.341Z">
+<meta property="og:updated_time" content="2021-04-26T06:55:51.791Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="来话应用Flutter重构可研">
-<meta name="twitter:description" content="目标和资源：    来话应用一期Android端上线后，希望以flutter重构业务逻辑，实现ADR/IOS双端上线。    目前组内可供开发人力，Android 3人，IOS/MACOS 2人。">
+<meta name="twitter:title" content="centos折腾confluence攻略">
+<meta name="twitter:description" content="团队还在刀耕火种，各种word文档满天飞，实在不能忍，于是在测试服务器上折腾了一个confluence方便团队协作。">
 
 
 
@@ -135,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/DJoeyZhang/archives/61fe53de.html">
+  <link rel="canonical" href="https://github.com/DJoeyZhang/archives/a144d083.html">
 
 
 
 
 
-  <title>来话应用Flutter重构可研 | 权译's  Blog</title>
+  <title>centos折腾confluence攻略 | 权译's  Blog</title>
   
 
 
@@ -276,7 +276,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/DJoeyZhang/archives/61fe53de.html">
+    <link itemprop="mainEntityOfPage" href="https://github.com/DJoeyZhang/archives/a144d083.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="权译">
@@ -293,7 +293,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">来话应用Flutter重构可研</h2>
+          <h2 class="post-title" itemprop="name headline">centos折腾confluence攻略</h2>
         
 
         <div class="post-meta">
@@ -305,8 +305,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-31T09:00:27+08:00">
-                2020-08-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-26T14:55:51+08:00">
+                2021-04-26
               </time>
               <br>
             
@@ -338,7 +338,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1.1k  words
+                  1.5k  words
                 </span>
               
 
@@ -354,7 +354,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  4  minutes
+                  6  minutes
                 </span>
               
             </div>
@@ -375,40 +375,76 @@
       
 
       
-        <p>目标和资源：<br><br>    来话应用一期Android端上线后，希望以flutter重构业务逻辑，实现ADR/IOS双端上线。 <br><br>   目前组内可供开发人力，Android 3人，IOS/MACOS 2人。<br><a id="more"></a></p>
-<h5 id="一、工作拆解："><a href="#一、工作拆解：" class="headerlink" title="一、工作拆解："></a>一、工作拆解：</h5><h6 id="1、架构设计："><a href="#1、架构设计：" class="headerlink" title="1、架构设计："></a>1、架构设计：</h6><p>来话Android端架构设计：<br><br>模块化解耦合，抽取module_base,module_function,module_user,app四个模块，其中module_base承载应用的基类和MVVM框架设计，module_function和module_user承载产品的具体功能函数和用户的信息管理，app模块是整个应用的壳工程，用来对接一些三方SDK。工程采用了jetbrain anko,okhttp3/retrofit/rxjava/dagger2/glide等一系列流行框架作为脚手架。<br></p>
-<p>来话Flutter端架构设计：<br><br>总体设计上可复用来话Android端架构。工具框架参考flutter开发者社区，大体覆盖了我方功能需求。但flutter所选框架在Adr/IOs双端的兼容性需要双端工程师进行调试。</p>
-<h6 id="2、Tencent-IM-SDK-SensorSDK-TingYun-SDK-XGPush的桥接（工作量大，重难点）"><a href="#2、Tencent-IM-SDK-SensorSDK-TingYun-SDK-XGPush的桥接（工作量大，重难点）" class="headerlink" title="2、Tencent IM SDK / SensorSDK / TingYun SDK / XGPush的桥接（工作量大，重难点）"></a>2、Tencent IM SDK / SensorSDK / TingYun SDK / XGPush的桥接（工作量大，重难点）</h6><p>以上四者SDK，分别提供了来话的 即时通话能力 、 商化统计能力 、 性能监控能力 、推送及接收消息能力。且此四者SDK并无Flutter版本，需要双端工程师根据SDK的开放API，选定合适版本进行桥接编写。</p>
-<h6 id="3、工具类封装、基类编写："><a href="#3、工具类封装、基类编写：" class="headerlink" title="3、工具类封装、基类编写："></a>3、工具类封装、基类编写：</h6><p>此工作采用Dart,由Adr工程师编写，IOS端工程师负责单侧调试。</p>
-<h6 id="4、功能页面的编写：（工作量大-且琐碎）"><a href="#4、功能页面的编写：（工作量大-且琐碎）" class="headerlink" title="4、功能页面的编写：（工作量大,且琐碎）"></a>4、功能页面的编写：（工作量大,且琐碎）</h6><p>此工作采用Dart,由Adr工程师编写，IOS端工程师负责单侧调试。</p>
-<h6 id="5、权限功能编写："><a href="#5、权限功能编写：" class="headerlink" title="5、权限功能编写："></a>5、权限功能编写：</h6><p>来话产品所需求（eg:静默下载，本地通讯录联系人等）的一系列敏感权限，IOS工程师需评估其对于上架审核有无影响。部分诸如强制更新，后台唤起等功能IOS端恐怕实现困难，需寻找替代方案。</p>
-<h5 id="二、风险评估："><a href="#二、风险评估：" class="headerlink" title="二、风险评估："></a>二、风险评估：</h5><h6 id="1、-开发人员技术栈现状："><a href="#1、-开发人员技术栈现状：" class="headerlink" title="1、 开发人员技术栈现状："></a>1、 开发人员技术栈现状：</h6><p>有flutter开发经验的Android工程师仅1人。其余四人需要培训学习后兼顾进行开发，人力投入上难以 all in。</p>
-<h6 id="2、-应用权限申请："><a href="#2、-应用权限申请：" class="headerlink" title="2、 应用权限申请："></a>2、 应用权限申请：</h6><p>来话Android端申请了许多诸如：通讯录读取、静默下载、浮动在上层应用等敏感权限。IOS端恐怕无法申请并过审。</p>
-<h5 id="三、开发、协作模式："><a href="#三、开发、协作模式：" class="headerlink" title="三、开发、协作模式："></a>三、开发、协作模式：</h5><p>人力现状：<br>Android工程师充足，但手中有其他工作；IOS工程师人力少，手中有其他工作且处于异地。</p>
-<h6 id="建议的协作开发模式："><a href="#建议的协作开发模式：" class="headerlink" title="建议的协作开发模式："></a>建议的协作开发模式：</h6><p>1、Android端先行进入调研开发。工作优先级：SDK的桥接封装协议制定及编码 &gt; 框架设计、基类、工具编写 &gt; 具体功能界面编写实现。</p>
-<p>2、IOS端待SDK封装协议制定后进入开发。根据Android端开发进度进行适配(android端需制定短期里程碑计划，定期输出flutter编码供IOS端适配调试)。</p>
-<h5 id="四、工期评估："><a href="#四、工期评估：" class="headerlink" title="四、工期评估："></a>四、工期评估：</h5><h6 id="1、SDK封装协议及编码开发：-—-共计：30人日"><a href="#1、SDK封装协议及编码开发：-—-共计：30人日" class="headerlink" title="1、SDK封装协议及编码开发： —-共计：30人日"></a>1、SDK封装协议及编码开发： —-共计：30人日</h6><pre><code>Tencent IM SDK 桥接协议制定编写。----7人日
-SensorSDK 桥接协议制定编写。----7人日
-TingYun SDK 桥接协议制定编写。----7人日
-XGPush SDK 桥接协议制定编写。----7人日
-调试自测。 ----2人日
-</code></pre><h6 id="2、架构设计、框架开发：-—-共计：6人日"><a href="#2、架构设计、框架开发：-—-共计：6人日" class="headerlink" title="2、架构设计、框架开发： —-共计：6人日"></a>2、架构设计、框架开发： —-共计：6人日</h6><pre><code>工程架构搭建。----2人日
-依赖管理。----2人日
-调试自测。 ----2人日
-</code></pre><h6 id="3、功能页面编写：-—-共计：45人日"><a href="#3、功能页面编写：-—-共计：45人日" class="headerlink" title="3、功能页面编写： —- 共计：45人日"></a>3、功能页面编写： —- 共计：45人日</h6><pre><code>首页通话记录模块。----2人日
-首页通讯录模块。 ----2人日
-首页设置模块。----1人日
-消息模块。----2人日
-预约功能模块。 ---- 3人日
-多选联系人功能模块。 ----3人日
-设置模块、关于模块、扫一扫添加联系人模块。----3人日
-添加联系人、通讯录校验、好友邀请模块。----4人日
-下载升级功能。 ----3人日
-单人、多人通话功能。 ----14人日
-登陆注册模块。----2人日
-所有模块埋点统计。----2人日
-调试自测。 ----4人日
-</code></pre><h6 id="4、基类、工具类编写：-—-共计：5人日"><a href="#4、基类、工具类编写：-—-共计：5人日" class="headerlink" title="4、基类、工具类编写： —-共计：5人日"></a>4、基类、工具类编写： —-共计：5人日</h6><h6 id="5、权限体系编写：-—-6人日"><a href="#5、权限体系编写：-—-6人日" class="headerlink" title="5、权限体系编写： —-6人日"></a>5、权限体系编写： —-6人日</h6><p>共计：92人日。（预估前提：在重构工作无产品干预的前提下，仅以我个人开发能力all in状态进行Android端flutter重构的乐观评估。IOS侧适配工期需IOS工程师另行评估）</p>
+        <p>团队还在刀耕火种，各种word文档满天飞，实在不能忍，于是在测试服务器上折腾了一个confluence方便团队协作。<br><a id="more"></a></p>
+<h5 id="先提炼几个经常用的命令"><a href="#先提炼几个经常用的命令" class="headerlink" title="先提炼几个经常用的命令"></a>先提炼几个经常用的命令</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">启动wiki&lt;br&gt;</span><br><span class="line">/etc/init.d/confluence start</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">停止wiki服务&lt;br&gt;</span><br><span class="line">/etc/init.d/confluence stop</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">重启服务&lt;br&gt;</span><br><span class="line">/etc/init.d/confluence restart</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">卸载&lt;br&gt;</span><br><span class="line">/etc/init.d/confluence stop</span><br><span class="line">/opt/atlassian/confluence/uninstall</span><br><span class="line">rm -rf /opt/atlassian</span><br><span class="line">rm -rf /var/atlassian</span><br><span class="line">drop database wiki //登录数据库&lt;br&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">数据库设置</span><br><span class="line">jdbc:mysql://localhost:3306/wiki_new?useUnicode=true&amp;amp;characterEncoding=UTF8&amp;amp;sessionVariables=tx_isolation=&apos;READ-COMMITTED&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant all on wiki_new.* to wiki_user@&quot;%&quot; identified by &quot;wiki_password&quot;;</span><br></pre></td></tr></table></figure>
+<h5 id="关于confluence存储原理，方便迁移"><a href="#关于confluence存储原理，方便迁移" class="headerlink" title="关于confluence存储原理，方便迁移"></a>关于confluence存储原理，方便迁移</h5><p><a href="https://zhuanlan.zhihu.com/p/38625186" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/38625186</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync -avz --delete /var/atlassian/ /confluence/atlassian/</span><br></pre></td></tr></table></figure></p>
+<h5 id="发现一个更好的部署方案"><a href="#发现一个更好的部署方案" class="headerlink" title="发现一个更好的部署方案"></a>发现一个更好的部署方案</h5><p>1、<a href="https://www.dqzboy.com/atlassian%e5%85%a8%e5%ae%b6%e6%a1%b6%e4%bb%a5%e5%8f%8a%e6%8f%92%e4%bb%b6%e7%a0%b4%e8%a7%a3%e8%af%a6%e7%bb%86%e6%95%99%e7%a8%8b" target="_blank" rel="noopener">https://www.dqzboy.com/atlassian%e5%85%a8%e5%ae%b6%e6%a1%b6%e4%bb%a5%e5%8f%8a%e6%8f%92%e4%bb%b6%e7%a0%b4%e8%a7%a3%e8%af%a6%e7%bb%86%e6%95%99%e7%a8%8b</a></p>
+<p>2、开源破解：<a href="https://zhile.io/2018/12/20/atlassian-license-crack.html" target="_blank" rel="noopener">https://zhile.io/2018/12/20/atlassian-license-crack.html</a></p>
+<h5 id="好了，征文开始"><a href="#好了，征文开始" class="headerlink" title="好了，征文开始"></a>好了，征文开始</h5><p>系统：本机MacOS远程向CentOS6.6服务器安装wiki</p>
+<p>wiki版本：5.4.4</p>
+<p>文件：<a href="http://www.fengyachao.com/file/confluence.zip" target="_blank" rel="noopener">www.fengyachao.com/file/confluence.zip</a></p>
+<p>开始</p>
+<p>0.下载文件并解压，将下载的压缩文件上传到CentOS，解压缩</p>
+<p>1.登录CentOS，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x atlassian-confluence-5.4.4-x64_1.bin</span><br><span class="line">./atlassian-confluence-5.4.4-x64_1.bin</span><br></pre></td></tr></table></figure>
+<p>执行bin文件后，会经历三个确认</p>
+<p>第一个，是否确认安装。[o]</p>
+<p>第二个，选择安装方式，默认、自定义、升级现有的。[1]</p>
+<p>第三个，确认安装。[i]</p>
+<p>注：此时，安装已完成，不应该出现任何错误</p>
+<p>2.http访问</p>
+<p>观察第一步安装信息，可知，confluence打开8090端口。</p>
+<p>访问 <a href="http://your.centos.ip:8090" target="_blank" rel="noopener">http://your.centos.ip:8090</a> 记录此页面中的Server ID</p>
+<p>3.停止wiki服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/confluence stop</span><br></pre></td></tr></table></figure></p>
+<p>4.将atlassian-extras-2.4.jar拷贝到本机，准备进行破解注：我这里是mac，所以如果你是windows或linux，用你的办法将文件拷贝到本地</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp user_name@your.centos.ip:/opt/atlassian/confluence/confluence/WEB-INF/lib/atlassian-extras-2.4.jar .</span><br></pre></td></tr></table></figure>
+<p>5.解压下载的压缩包后，里面有confluence5.1-crack.zip，将其解压得到confluence5.1-crack文件夹</p>
+<p>将从centos下载下来的atlassian-extras-2.4.jar覆盖confluence5.1-crack里的atlassian-extras-2.4.jar</p>
+<p>进入confluence5.1-crack/iNVISIBLE</p>
+<p>MAC对应keygen_MacOSX.sh(linux对应keygen.sh)</p>
+<p>由于我chmod +x keygen_MacOSX.sh后执行./keygen_MacOSX.sh报错，所以我打开keygen_MacOSX.sh看到其核心代码即是执行confluence_keygen.jar。于是，我直接执行下面命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home/bin/java -jar confluence_keygen.jar</span><br></pre></td></tr></table></figure></p>
+<p>此时，会弹出UI界面</p>
+<p>填写相关信息(name别太短)，最重要的是serverId，填写第二步获取的ServerId。</p>
+<p>点击”patch!”，选择第四步从centos下载下来的放在confluence5.1-crack里的atlassian-extras-2.4.jar</p>
+<p>点击”.gen!”， key文本框里会生成相应信息</p>
+<p>6.此时confluence5.1-crack里会有atlassian-extras-2.4.jar和atlassian-extras-2.4.bak</p>
+<p>将atlassian-extras-2.4.jar拷贝到服务器的/opt/atlassian/confluence/confluence/WEB-INF/lib/位置，覆盖此处的文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp atlassian-extras-2.4.jar user_name@your.centos.ip:/opt/atlassian/confluence/confluence/WEB-INF/lib/</span><br></pre></td></tr></table></figure></p>
+<p>7.启动wiki</p>
+<p>/etc/init.d/confluence start<br>8.将第五步生成的key，拷贝放在第二步页面的License Key位置</p>
+<p>9.点击“production installation”</p>
+<p>10.在centos服务器上,将mysql驱动包放到confluence里<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp mysql-connector-java-5.1.24/mysql-connector-java-5.1.24-bin.jar /opt/atlassian/confluence/confluence/WEB-INF/lib/</span><br></pre></td></tr></table></figure></p>
+<p>11.重启服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/confluence restart</span><br></pre></td></tr></table></figure></p>
+<p>12.在页面上，选择数据库“MySQL”，点击“ Externam Database”</p>
+<p>13.登录mysql 创建数据库及账号</p>
+<p>我是在centos上有安装好的mysql</p>
+<p>注：5.4.4版本的confluence，貌似对mysql的存储引擎有要求，需要是InnoDB(我第一次没有改，用的MyISAM，下一步就出错了)。</p>
+<p> show variables like ‘%storage_engine%’;//查看默认存储引擎<br>如果是MyISAM的话，在/etc/my.cnf文件[mysqld]下添加default-storage-engine=InnoDB，重启mysql<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/mysqld restart</span><br><span class="line">mysql -uroot -p</span><br><span class="line">create database wiki character set UTF8;</span><br><span class="line">grant all on wiki.* to wiki_user@&quot;%&quot; identified by &quot;wiki_password&quot;;</span><br></pre></td></tr></table></figure></p>
+<p>14.在页面上点击“Direct JDBC”</p>
+<p>15.填写db信息</p>
+<p>Driver Class Name不用变</p>
+<p>Database URL，修正对应ip、port、database，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jdbc:mysql://localhost:3306/wiki?useUnicode=true&amp;characterEncoding=UTF8&amp;sessionVariables=storage_engine%3DInnoDB</span><br></pre></td></tr></table></figure></p>
+<p>上面的连接符是”&amp;”不是”&amp;”，这样是没有问题的，如果你要用”&amp;”也可以尝试，但后面可能出错</p>
+<p>User Name和Password填写第13步创建的用户名密码即可</p>
+<p>16.点击“Next”，此时可能会有一个比较长的等待，如果此处出错了，停掉wiki服务，卸载wiki，删掉wiki文件，卸载数据库，从第一步重新来。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/confluence stop</span><br><span class="line">/opt/atlassian/confluence/uninstall</span><br><span class="line">rm -rf /opt/atlassian</span><br><span class="line">rm -rf /var/atlassian</span><br><span class="line">drop database wiki //登录数据库</span><br></pre></td></tr></table></figure></p>
+<p>此处可能出错的原因：</p>
+<p>第2步使用域名，没用ip:port</p>
+<p>第13步没设置默认存储引擎为InnoDB</p>
+<p>第15步，ip、port、db或连接符不正确</p>
+<p>当出现错误后，不要试图点击后退，修改信息，再尝试点击“Next”。直接按本步所说的做相关卸载操作，并修正产生问题的地方，从第一步开始。</p>
+<p>17.如果上一步成功的话，点击“Empty Site”。你也可以点击“Example Site”。</p>
+<p>18.点击“Manage users and groups within Confluence”，设置管理员相关信息。这里是“下一步”还是“确定”忘了，点击即可</p>
+<p>19.点击further configuration</p>
+<p>20.登录wiki，点击右上角齿轮图标下拉菜单最后一个菜单（插件），点击“upload add-on”，选择解压文件夹里的“Confluence-Language-STD-CN.jar”</p>
+<p>21.很重要</p>
+<p>vim /var/atlassian/application-data/confluence/confluence.cfg.xml<br>编辑此配置文件中“hibernate.connection.url”，注意连接符“&amp;”此处可能变为了“&amp;amp;”，要修改为“&amp;”修改完后重启wiki<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/confluence restart</span><br></pre></td></tr></table></figure></p>
+<p>如果不进行此步骤，创建一些中文的内容，重启wiki，会让所有中文乱码，数据库里的数据都是乱码。</p>
+<p>21.设置base url，job，创建空间，空间权限，用户等</p>
+<p>22.添加一些中文内容后，重启wiki，再访问页面，看是否乱码，如果不乱码基本就没问题了</p>
 
       
     </div>
@@ -462,8 +498,8 @@ XGPush SDK 桥接协议制定编写。----7人日
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/archives/70f14e75.html" rel="next" title="记录一些好用的配置工具和lint配置">
-                <i class="fa fa-chevron-left"></i> 记录一些好用的配置工具和lint配置
+              <a href="/archives/cdfc1218.html" rel="next" title="分享一个文档工具typora">
+                <i class="fa fa-chevron-left"></i> 分享一个文档工具typora
               </a>
             
           </div>
@@ -472,8 +508,8 @@ XGPush SDK 桥接协议制定编写。----7人日
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/archives/706e1d98.html" rel="prev" title="一些前端面试题">
-                一些前端面试题 <i class="fa fa-chevron-right"></i>
+              <a href="/archives/f67afe4b.html" rel="prev" title="关于Flutter的一些脚手架和不错的博文（持续更新）">
+                关于Flutter的一些脚手架和不错的博文（持续更新） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -642,7 +678,7 @@ XGPush SDK 桥接协议制定编写。----7人日
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#一、工作拆解："><span class="nav-number">1.</span> <span class="nav-text">一、工作拆解：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1、架构设计："><span class="nav-number">1.1.</span> <span class="nav-text">1、架构设计：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2、Tencent-IM-SDK-SensorSDK-TingYun-SDK-XGPush的桥接（工作量大，重难点）"><span class="nav-number">1.2.</span> <span class="nav-text">2、Tencent IM SDK / SensorSDK / TingYun SDK / XGPush的桥接（工作量大，重难点）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3、工具类封装、基类编写："><span class="nav-number">1.3.</span> <span class="nav-text">3、工具类封装、基类编写：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4、功能页面的编写：（工作量大-且琐碎）"><span class="nav-number">1.4.</span> <span class="nav-text">4、功能页面的编写：（工作量大,且琐碎）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5、权限功能编写："><span class="nav-number">1.5.</span> <span class="nav-text">5、权限功能编写：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二、风险评估："><span class="nav-number">2.</span> <span class="nav-text">二、风险评估：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1、-开发人员技术栈现状："><span class="nav-number">2.1.</span> <span class="nav-text">1、 开发人员技术栈现状：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2、-应用权限申请："><span class="nav-number">2.2.</span> <span class="nav-text">2、 应用权限申请：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三、开发、协作模式："><span class="nav-number">3.</span> <span class="nav-text">三、开发、协作模式：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#建议的协作开发模式："><span class="nav-number">3.1.</span> <span class="nav-text">建议的协作开发模式：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#四、工期评估："><span class="nav-number">4.</span> <span class="nav-text">四、工期评估：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1、SDK封装协议及编码开发：-—-共计：30人日"><span class="nav-number">4.1.</span> <span class="nav-text">1、SDK封装协议及编码开发： —-共计：30人日</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2、架构设计、框架开发：-—-共计：6人日"><span class="nav-number">4.2.</span> <span class="nav-text">2、架构设计、框架开发： —-共计：6人日</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3、功能页面编写：-—-共计：45人日"><span class="nav-number">4.3.</span> <span class="nav-text">3、功能页面编写： —- 共计：45人日</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4、基类、工具类编写：-—-共计：5人日"><span class="nav-number">4.4.</span> <span class="nav-text">4、基类、工具类编写： —-共计：5人日</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5、权限体系编写：-—-6人日"><span class="nav-number">4.5.</span> <span class="nav-text">5、权限体系编写： —-6人日</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#先提炼几个经常用的命令"><span class="nav-number">1.</span> <span class="nav-text">先提炼几个经常用的命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关于confluence存储原理，方便迁移"><span class="nav-number">2.</span> <span class="nav-text">关于confluence存储原理，方便迁移</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#发现一个更好的部署方案"><span class="nav-number">3.</span> <span class="nav-text">发现一个更好的部署方案</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#好了，征文开始"><span class="nav-number">4.</span> <span class="nav-text">好了，征文开始</span></a></li></ol></div>
             
 
           </div>
