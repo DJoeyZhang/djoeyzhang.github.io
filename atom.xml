@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/DJoeyZhang/"/>
-  <updated>2021-04-26T06:58:00.733Z</updated>
+  <updated>2021-05-31T09:12:21.639Z</updated>
   <id>https://github.com/DJoeyZhang/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>web开发中碰到的一些问题记录</title>
+    <link href="https://github.com/DJoeyZhang/archives/430ebcc9.html"/>
+    <id>https://github.com/DJoeyZhang/archives/430ebcc9.html</id>
+    <published>2021-05-31T09:12:21.000Z</published>
+    <updated>2021-05-31T09:12:21.639Z</updated>
+    
+    <content type="html"><![CDATA[<p>1、关闭Mac Chrome 跨域追踪：</p><p>open -n /Applications/Google\ Chrome.app/ –args –disable-web-security –user-data-dir=/Users/xxx/Documents/chromeDevData</p><p>2、第三方免密认证登录过程中使用跨域set-Cookie方式在IOS上引发的问题：<br><a href="https://www.dazhuanlan.com/2019/10/26/5db45ddb1e269/" target="_blank" rel="noopener">https://www.dazhuanlan.com/2019/10/26/5db45ddb1e269/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;1、关闭Mac Chrome 跨域追踪：&lt;/p&gt;
+&lt;p&gt;open -n /Applications/Google\ Chrome.app/ –args –disable-web-security –user-data-dir=/Users/xxx/Documents/chr
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Flutter相关博文</title>
@@ -364,29 +386,6 @@
     <summary type="html">
     
       &lt;h5 id=&quot;何为密封类？&quot;&gt;&lt;a href=&quot;#何为密封类？&quot; class=&quot;headerlink&quot; title=&quot;何为密封类？&quot;&gt;&lt;/a&gt;何为密封类？&lt;/h5&gt;&lt;p&gt;从文档得知：密封类用于表示受限类层次结构，此时值可以具有来自受限集的类型之一，但不能具有任何其他类型。从某种意义上说，它们是枚举类的扩展：枚举类型的值集也受到限制，但每个枚举常数仅作为单个实例存在，而密封类的子类可以具有多个实例，这些实例可以包含状态。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="android" scheme="https://github.com/DJoeyZhang/tags/android/"/>
-    
-      <category term="kotlin" scheme="https://github.com/DJoeyZhang/tags/kotlin/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kotlin学习（五）：Extension Functions</title>
-    <link href="https://github.com/DJoeyZhang/archives/e32f47f4.html"/>
-    <id>https://github.com/DJoeyZhang/archives/e32f47f4.html</id>
-    <published>2020-02-04T08:42:00.000Z</published>
-    <updated>2020-02-04T08:54:38.723Z</updated>
-    
-    <content type="html"><![CDATA[<h5 id="拓展函数"><a href="#拓展函数" class="headerlink" title="拓展函数"></a>拓展函数</h5><p>何为拓展函数？</p><p>正如其名称，拓展函数是这样一种函数：它可以帮助你在不触及类代码的情况下，拓展类中函数的功能。这样可以减少不必要的外部代码污染。<br><br>换句话说，在kotlin中，拓展函数允许我们通过添加新函数的方式拓展类的函数种类。被拓展的类不必属于我们（它可以是第三方库中的类）并且也不需要我们写类去集成被拓展的类。<br><br>真的？不需要使用继承！<br><br>是的，这在kotlin中是可以的。<br><br>让我们停止白话，展示一下拓展函数如何使用。<br><br><a id="more"></a><br>举一个非常简单的例子来帮助理解：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fun Int.triple(): Int &#123;</span><br><span class="line">  return this * 3</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// now we can use like this</span><br><span class="line">var result = 3.triple()</span><br></pre></td></tr></table></figure></p><p>另一个例子，让我们看看拓展函数如何应用在Android的View中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fun ImageView.loadImage(url: String) &#123;</span><br><span class="line">    Glide.with(context).load(url).into(this)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// now we can use like this</span><br><span class="line">imageView.loadImage(url)</span><br></pre></td></tr></table></figure></p><p>这看起来棒极了！<br><br>在Android开发中，有很多地方我们都可以使用kotlin的这个很酷的特性。让我合理使用它吧！</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h5 id=&quot;拓展函数&quot;&gt;&lt;a href=&quot;#拓展函数&quot; class=&quot;headerlink&quot; title=&quot;拓展函数&quot;&gt;&lt;/a&gt;拓展函数&lt;/h5&gt;&lt;p&gt;何为拓展函数？&lt;/p&gt;
-&lt;p&gt;正如其名称，拓展函数是这样一种函数：它可以帮助你在不触及类代码的情况下，拓展类中函数的功能。这样可以减少不必要的外部代码污染。&lt;br&gt;&lt;br&gt;换句话说，在kotlin中，拓展函数允许我们通过添加新函数的方式拓展类的函数种类。被拓展的类不必属于我们（它可以是第三方库中的类）并且也不需要我们写类去集成被拓展的类。&lt;br&gt;&lt;br&gt;真的？不需要使用继承！&lt;br&gt;&lt;br&gt;是的，这在kotlin中是可以的。&lt;br&gt;&lt;br&gt;让我们停止白话，展示一下拓展函数如何使用。&lt;br&gt;&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
