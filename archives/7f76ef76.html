@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="权译&#39;s  Blog">
 <meta property="og:description" content="这次记一些面试题总结，给自己用。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-06-18T09:37:01.637Z">
+<meta property="og:updated_time" content="2021-06-21T04:06:55.481Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Web开发的一些面试题">
 <meta name="twitter:description" content="这次记一些面试题总结，给自己用。">
@@ -338,7 +338,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1.2k  words
+                  1.5k  words
                 </span>
               
 
@@ -354,7 +354,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  5  minutes
+                  6  minutes
                 </span>
               
             </div>
@@ -385,17 +385,16 @@
 <p>curry：<a href="https://www.jianshu.com/p/2975c25e4d71" target="_blank" rel="noopener">https://www.jianshu.com/p/2975c25e4d71</a><br>闭包：<a href="https://www.jianshu.com/p/9eb30b6af3a1" target="_blank" rel="noopener">https://www.jianshu.com/p/9eb30b6af3a1</a></p>
 <p>7、手写前序遍历、中序遍历、快排<br><a href="https://www.cnblogs.com/echolun/p/13328927.html" target="_blank" rel="noopener">https://www.cnblogs.com/echolun/p/13328927.html</a></p>
 <p>8、vue路由原理，路由守卫<br>路由原理：<a href="https://www.cnblogs.com/gaosirs/p/10606266.html" target="_blank" rel="noopener">https://www.cnblogs.com/gaosirs/p/10606266.html</a><br>路由守卫：<a href="https://www.jianshu.com/p/691379025334" target="_blank" rel="noopener">https://www.jianshu.com/p/691379025334</a></p>
-<p>9、react hook相关</p>
-<p>10、如何优化，前端错误监控</p>
-<p>11、vue和react框架比较</p>
-<p>12、webpack进行css-less打包<br><a href="https://www.jianshu.com/p/218ecf81c07b" target="_blank" rel="noopener">https://www.jianshu.com/p/218ecf81c07b</a></p>
+<p>9、react hook相关<br><a href="https://blog.csdn.net/kellywong/article/details/106430977" target="_blank" rel="noopener">https://blog.csdn.net/kellywong/article/details/106430977</a></p>
+<p>10、如何优化，前端错误监控<br>数据采集-&gt;上报-&gt;服务处理-&gt;数据存储-&gt;可视化<br><a href="https://segmentfault.com/a/1190000021029136" target="_blank" rel="noopener">https://segmentfault.com/a/1190000021029136</a></p>
+<p>11、vue和react框架比较<br>二者都通过虚拟DOM，在渲染之前进行domDiff操作，降低了dom 频繁操作的成本，<br>vue 的模版语法对初学者较容易上手<br>12、webpack进行css-less打包<br><a href="https://www.jianshu.com/p/218ecf81c07b" target="_blank" rel="noopener">https://www.jianshu.com/p/218ecf81c07b</a></p>
 <p>二、浏览器相关<br>1、浏览器存储方式有什么<br>Cookie、localStorage、 sessionStorage<br><a href="https://www.cnblogs.com/jing-tian/p/10991431.html" target="_blank" rel="noopener">https://www.cnblogs.com/jing-tian/p/10991431.html</a></p>
 <p>2、LS的limit一般浏览器限制多少<br>5M,cookie较小，一般4k</p>
 <p>3、如果LS做缓存层有什么方案保证不溢出<br>LRU</p>
-<p>4、LRU实现</p>
-<p>5、浏览器输入url到页面呈现过程</p>
-<p>三、微前端<br>1、样式隔离<br>2、路由同步<br>3、JS沙箱</p>
-<p>四、Flutter相关</p>
+<p>4、LRU实现<br><a href="https://www.cnblogs.com/everlose/p/12854807.html" target="_blank" rel="noopener">https://www.cnblogs.com/everlose/p/12854807.html</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">var LRUCache = function (capacity) &#123;</span><br><span class="line">  this.cache = new Map();</span><br><span class="line">  this.capacity = capacity;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">LRUCache.prototype.get = function (key) &#123;</span><br><span class="line">  if (this.cache.has(key)) &#123;</span><br><span class="line">    // 存在即更新</span><br><span class="line">    let temp = this.cache.get(key);</span><br><span class="line">    this.cache.delete(key);</span><br><span class="line">    this.cache.set(key, temp);</span><br><span class="line">    return temp;</span><br><span class="line">  &#125;</span><br><span class="line">  return -1;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">LRUCache.prototype.put = function (key, value) &#123;</span><br><span class="line">  if (this.cache.has(key)) &#123;</span><br><span class="line">    // 存在即更新（删除后加入）</span><br><span class="line">    this.cache.delete(key);</span><br><span class="line">  &#125; else if (this.cache.size &gt;= this.capacity) &#123;</span><br><span class="line">    // 不存在即加入</span><br><span class="line">    // 缓存超过最大值，则移除最近没有使用的</span><br><span class="line">    this.cache.delete(this.cache.keys().next().value);</span><br><span class="line">  &#125;</span><br><span class="line">  this.cache.set(key, value);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>5、浏览器输入url到页面呈现过程<br>DNS 解析 -&gt; 三次握手 -&gt;建立TCP连接后发起http请求 -&gt;服务器收到请求并响应HTTP请求 -&gt;浏览器解析htm代码,并请求htm代码中的资源(如js、css图片等) -&gt; 断开TCP连接<br>(四次挥手)-&gt;浏览器对页面进行渲染呈现给用户<br><a href="https://blog.csdn.net/qq_21993785/article/details/81188253" target="_blank" rel="noopener">https://blog.csdn.net/qq_21993785/article/details/81188253</a></p>
+<p>三、微前端<br>1、样式隔离<br><a href="https://www.yuque.com/techiu/vkrpan/urz482" target="_blank" rel="noopener">https://www.yuque.com/techiu/vkrpan/urz482</a><br>2、路由同步<br>3、JS沙箱<br>4、低代码</p>
+<p>四、Flutter相关<br>1、<a href="https://www.jianshu.com/p/93821c12a825" target="_blank" rel="noopener">https://www.jianshu.com/p/93821c12a825</a><br>2、<a href="https://zhuanlan.zhihu.com/p/102193331" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/102193331</a><br>3、<a href="https://www.jianshu.com/p/1e00b5aaf422" target="_blank" rel="noopener">https://www.jianshu.com/p/1e00b5aaf422</a><br>4、<a href="https://blog.csdn.net/u013095264/article/details/88802822" target="_blank" rel="noopener">https://blog.csdn.net/u013095264/article/details/88802822</a></p>
 
       
     </div>
@@ -632,7 +631,7 @@
   <span class="post-meta-item-icon">
         <i class="fa fa-file-word-o"></i>
   </span>
-  <span class="post-count">Site words total count:  39.5k  words</span>
+  <span class="post-count">Site words total count:  39.8k  words</span>
 </div>
 
 
