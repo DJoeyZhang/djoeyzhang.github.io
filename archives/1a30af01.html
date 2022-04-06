@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="权译's  Blog" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="在写 ts 相关代码的过程中，总能看到 interface 和 type 的身影。它们的作用好像都一样的，相同的功能用哪一个都可以实现，也都很好用，所以也很少去真正的理解它们之间到底有啥区别， 分别在什么场景下使用，将自己学习的内容记录分享一下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="type 与 interface 的区别，你真的懂了吗？">
+<meta property="og:url" content="https://github.com/DJoeyZhang/archives/1a30af01.html">
+<meta property="og:site_name" content="权译&#39;s  Blog">
+<meta property="og:description" content="在写 ts 相关代码的过程中，总能看到 interface 和 type 的身影。它们的作用好像都一样的，相同的功能用哪一个都可以实现，也都很好用，所以也很少去真正的理解它们之间到底有啥区别， 分别在什么场景下使用，将自己学习的内容记录分享一下">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2022-04-06T04:18:41.886Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="type 与 interface 的区别，你真的懂了吗？">
+<meta name="twitter:description" content="在写 ts 相关代码的过程中，总能看到 interface 和 type 的身影。它们的作用好像都一样的，相同的功能用哪一个都可以实现，也都很好用，所以也很少去真正的理解它们之间到底有啥区别， 分别在什么场景下使用，将自己学习的内容记录分享一下">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/DJoeyZhang/archives/1a30af01.html">
+
+
+
+
+
+  <title>type 与 interface 的区别，你真的懂了吗？ | 权译's  Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+<!--Github-start-->
+<a href="https://github.com/DJoeyZhang" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<!--Github-end-->
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">权译's  Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">记录生活点点滴滴</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/DJoeyZhang/archives/1a30af01.html">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="权译">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="权译's  Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">type 与 interface 的区别，你真的懂了吗？</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-04-06T12:04:05+08:00">
+                2022-04-06
+              </time>
+              <br>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1.6k  words
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  6  minutes
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在写 ts 相关代码的过程中，总能看到 interface 和 type 的身影。它们的作用好像都一样的，相同的功能用哪一个都可以实现，也都很好用，所以也很少去真正的理解它们之间到底有啥区别， 分别在什么场景下使用，将自己学习的内容记录分享一下<br><a id="more"></a></p>
+<h4 id="类型别名-type"><a href="#类型别名-type" class="headerlink" title="类型别名 type"></a>类型别名 type</h4><p>首先认识一下什么是类型别名？<br><br>类型别名用来给一个类型起个新名字，使用 type 创建类型别名，类型别名不仅可以用来表示基本类型，还可以用来表示对象类型、联合类型、元组和交集。让我们看一些例子：<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">type userName = string; // 基本类型</span><br><span class="line">type userId = string | number; // 联合类型</span><br><span class="line">type arr = number[]; </span><br><span class="line"></span><br><span class="line">// 对象类型</span><br><span class="line">type Person = &#123;</span><br><span class="line">    id: userId; // 可以使用定义类型</span><br><span class="line">    name: userName;</span><br><span class="line">    age: number;</span><br><span class="line">    gender: string;</span><br><span class="line">    isWebDev: boolean;</span><br><span class="line">&#125;;</span><br><span class="line">// 范型</span><br><span class="line">type Tree&lt;T&gt; = &#123; value: T &#125;;</span><br><span class="line"></span><br><span class="line">const user: Person = &#123;</span><br><span class="line">    id: &quot;901&quot;,</span><br><span class="line">    name: &quot;椿&quot;,</span><br><span class="line">    age: 22,</span><br><span class="line">    gender: &quot;女&quot;,</span><br><span class="line">    isWebDev: false,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const numbers: arr = [1, 8, 9];</span><br></pre></td></tr></table></figure>
+<h4 id="接口-interface"><a href="#接口-interface" class="headerlink" title="接口 interface"></a>接口 interface</h4><p>接口是命名数据结构（例如对象）的另一种方式；与type 不同，interface仅限于描述对象类型。<br><br>接口的声明语法也不同于类型别名的声明语法。让我们将上面的类型别名 Person 重写为接口声明：<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">interface Person &#123;</span><br><span class="line">    id: userId;</span><br><span class="line">    name: userName;</span><br><span class="line">    age: number;</span><br><span class="line">    gender: string;</span><br><span class="line">    isWebDev: boolean;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="interface和type的相似之处"><a href="#interface和type的相似之处" class="headerlink" title="interface和type的相似之处"></a>interface和type的相似之处</h4><p>在讨论二者区别之前， 首先看一下二者的相似之处（为何开发中，我们觉得用哪个都一样）</p>
+<h6 id="都可以描述-Object和Function"><a href="#都可以描述-Object和Function" class="headerlink" title="都可以描述 Object和Function"></a>都可以描述 Object和Function</h6><p>两者都可以用来描述对象或函数,但语法不同:<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Type</span><br><span class="line">type Point = &#123;</span><br><span class="line">  x: number;</span><br><span class="line">  y: number;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">type SetPoint = (x: number, y: number) =&gt; void;</span><br><span class="line">Interface</span><br><span class="line">interface Point &#123;</span><br><span class="line">  x: number;</span><br><span class="line">  y: number;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">interface SetPoint &#123;</span><br><span class="line">  (x: number, y: number): void;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h6 id="二者都可以被继承"><a href="#二者都可以被继承" class="headerlink" title="二者都可以被继承"></a>二者都可以被继承</h6><p>interface 和 type 都可以继承。<br><br>另一个值得注意的是，接口和类型别名并不互斥。类型别名可以继承接口，反之亦然。只是在实现形式上，稍微有些差别。<br><br>interface 继承 interface<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">interface Person&#123;</span><br><span class="line">    name:string</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">interface Student extends Person &#123; stuNo: number &#125;</span><br></pre></td></tr></table></figure></p>
+<p>interface 继承 type<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">type Person&#123;</span><br><span class="line">    name:string</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">interface Student extends Person &#123; stuNo: number &#125;</span><br></pre></td></tr></table></figure></p>
+<p>type 继承 type<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">type Person&#123;</span><br><span class="line">    name:string</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">type Student = Person &amp; &#123; stuNo: number &#125;</span><br></pre></td></tr></table></figure></p>
+<p>type 继承 interface<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">interface Person&#123;</span><br><span class="line">    name:string</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">type Student = Person &amp; &#123; stuNo: number &#125;</span><br></pre></td></tr></table></figure></p>
+<p>实现 implements</p>
+<p>类可以实现interface 以及 type(除联合类型外)<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">interface ICat&#123;</span><br><span class="line">    setName(name:string): void;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Cat implements ICat&#123;</span><br><span class="line">    setName(name:string):void&#123;</span><br><span class="line">        // todo</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// type </span><br><span class="line">type ICat = &#123;</span><br><span class="line">    setName(name:string): void;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Cat implements ICat&#123;</span><br><span class="line">    setName(name:string):void&#123;</span><br><span class="line">        // todo</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面提到了特殊情况，类无法实现联合类型, 是什么意思呢？<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">type Person = &#123; name: string; &#125; | &#123; setName(name:string): void &#125;;</span><br><span class="line"></span><br><span class="line">// 无法对联合类型Person进行实现</span><br><span class="line">// error: A class can only implement an object type or intersection of object types with statically known members.</span><br><span class="line">class Student implements Person &#123;</span><br><span class="line">  name= &quot;张三&quot;;</span><br><span class="line">  setName(name:string):void&#123;</span><br><span class="line">        // todo</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>上面聊了interface与 type的相似之处， 接下来就来看看他们的区别。</p>
+<h6 id="二者区别"><a href="#二者区别" class="headerlink" title="二者区别"></a>二者区别</h6><ol>
+<li>定义基本类型别名</li>
+</ol>
+<p>type可以定义基本类型别名, 但是interface无法定义,如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type userName = string</span><br><span class="line">type stuNo = number</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li>声明联合类型</li>
+</ol>
+<p>type可以声明联合类型, 例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type Student = &#123;stuNo: number&#125; | &#123;classId: number&#125;</span><br></pre></td></tr></table></figure></p>
+<ol start="3">
+<li>声明元组</li>
+</ol>
+<p>type可以声明 元组类型：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type Data = [number, string];</span><br></pre></td></tr></table></figure></p>
+<p>以上都是 type能做到， 而interface做不到的， 接下来聊聊type做不到的</p>
+<ol start="4">
+<li>声明合并</li>
+</ol>
+<p>如果你多次声明一个同名的接口，TypeScript 会将它们合并到一个声明中，并将它们视为一个接口。这称为声明合并， 例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">interface Person &#123; name: string &#125;</span><br><span class="line">interface Person &#123; age: number &#125;</span><br><span class="line"></span><br><span class="line">let user: Person = &#123;</span><br><span class="line">    name: &quot;Tolu&quot;,</span><br><span class="line">    age: 0,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>这种情况下，如果是type的话，重复使用Person是会报错的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">type Person &#123; name: string &#125;; </span><br><span class="line"></span><br><span class="line">// Error: 标识符“Person”重复。ts(2300)</span><br><span class="line">type Person &#123; age: number &#125;</span><br></pre></td></tr></table></figure></p>
+<h6 id="5-索引签名问题"><a href="#5-索引签名问题" class="headerlink" title="5. 索引签名问题"></a>5. 索引签名问题</h6><p>如果你经常使用TypeScript, 一定遇到过相似的错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Type &apos;xxx&apos; is not assignable to type &apos;yyy&apos;</span><br><span class="line">Index signature is missing in type &apos;xxx&apos;.</span><br></pre></td></tr></table></figure></p>
+<p>看个例子来理解问题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">interface propType&#123;</span><br><span class="line">    [key: string] : string</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let props: propType</span><br><span class="line"></span><br><span class="line">type dataType = &#123;</span><br><span class="line">    title: string</span><br><span class="line">&#125;</span><br><span class="line">interface dataType1 &#123;</span><br><span class="line">    title: string</span><br><span class="line">&#125;</span><br><span class="line">const data: dataType = &#123;title: &quot;订单页面&quot;&#125;</span><br><span class="line">const data1: dataType1 = &#123;title: &quot;订单页面&quot;&#125;</span><br><span class="line">props = data</span><br><span class="line">// Error:类型“dataType1”不可分配给类型“propType”; 类型“dataType1”中缺少索引签名 </span><br><span class="line">props = data1</span><br></pre></td></tr></table></figure></p>
+<p>我们发现dataType和dataType1对应的类型一样，但是interface定义的就赋值失败，是什么原因呢？刚开始百思不解，最后我在 stack overflow上找到了一个相似的问题：<br><br>并且很幸运的找到了有效的答案：<br><br><br>翻译过来的大致意思就是：<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Record&lt;string,string&gt;与&#123;[key:string]：string&#125;相同。只有当该类型的所有属性都已知并且可以对照该索引签名进行检查时，才允许将子集分配给该索引签名类型。在您的例子中，从exampleType到Record&lt;string,string&gt;的所有内容都是可分配的。这只能针对对象字面量类型进行检查，因为一旦声明了对象字面量类型，就无法更改它们。因此，索引签名是已知的。</span><br><span class="line">相反，在你使用interface去声明变量时，它们在那一刻类型并不是最终的类型。由于interfac可以进行声明合并，所以总有可能将新成员添加到同一个interface定义的类型上。</span><br></pre></td></tr></table></figure></p>
+<p>再结合👆第4点 声明合并的讲解, 这样就很好理解了。就是说interface定义的类型是不确定的， 后面再来一个：<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">interface propType&#123;</span><br><span class="line">    title:number</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样propType类型就被改变了。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>官方推荐用 interface，其他无法满足需求的情况下用 type。<br><br>但其实，因为 联合类型 和 交叉类型 是很常用的，所以避免不了大量使用 type 的场景，一些复杂类型也需要通过组装后形成类型别名来使用。<br><br>所以，如果想保持代码统一，还是可选择使用 type。通过上面的对比，类型别名 其实可涵盖 interface 的大部分场景。<br><br>对于 React 组件中 props及 state，使用 type ，这样能够保证使用组件的地方不能随意在上面添加属性。如果有自定义需求，可通过 HOC二次封装。<br><br>编写三方库时使用interface，其更加灵活自动的类型合并可应对未知的复杂使用场景。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>龙颜大悦，朕要赏赐！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="权译 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="权译 Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/archives/7f76ef76.html" rel="next" title="Web开发的一些面试题">
+                <i class="fa fa-chevron-left"></i> Web开发的一些面试题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="权译">
+          <p class="site-author-name" itemprop="name">权译</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Manito Link
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.vivianchen.cn/" title="Vivian's blog" target="_blank">Vivian's blog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://pea3nut.blog/" title="花生PeA的博客" target="_blank">花生PeA的博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.cnblogs.com/Jax/" title="包建强的无线技术空间" target="_blank">包建强的无线技术空间</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://luckyxutao.github.io/" title="luckyxutao" target="_blank">luckyxutao</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.neday.cn/" title="neday's Blog" target="_blank">neday's Blog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://jsonchao.github.io/" title="Deep into Android" target="_blank">Deep into Android</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.dajipai.cc/" title="一只香脆的大鸡排" target="_blank">一只香脆的大鸡排</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#类型别名-type"><span class="nav-number">1.</span> <span class="nav-text">类型别名 type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口-interface"><span class="nav-number">2.</span> <span class="nav-text">接口 interface</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#interface和type的相似之处"><span class="nav-number">3.</span> <span class="nav-text">interface和type的相似之处</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#都可以描述-Object和Function"><span class="nav-number">3.0.1.</span> <span class="nav-text">都可以描述 Object和Function</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#二者都可以被继承"><span class="nav-number">3.0.2.</span> <span class="nav-text">二者都可以被继承</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#二者区别"><span class="nav-number">3.0.3.</span> <span class="nav-text">二者区别</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-索引签名问题"><span class="nav-number">3.0.4.</span> <span class="nav-text">5. 索引签名问题</span></a></li></ol></li></ol><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2018 - 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">权译</span>
+  <span class="post-meta-divider">|</span>
+  <span class="post-meta-item-icon">
+        <i class="fa fa-file-word-o"></i>
+  </span>
+  <span class="post-count">Site words total count:  41.6k  words</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 --> 
+<script type="text/javascript" src="/js/src/love.js"></script>
